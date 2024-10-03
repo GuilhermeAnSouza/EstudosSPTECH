@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    NOME:
+     <input id='input_nome' type="text"> <br> <br>
+    ano de nascimento:
+     <input id="input_ano" type="text"> <br> <br>   
+
+    <button onclick="cadastrar()">cadastrar</button>
+
+    <div id="div_mensagem"> </div>
+</body>
+</html>
+
+<script>
+    function cadastrar() {
+        var nome = input_nome.value;
+        var ano = input_ano.value;
+        var idade = 2024 - ano;
+        // var mensagem = 'informações: nome - ' + nome + '- Idade: ' + idade
+        var mensagem = `informações - nome: 
+        ${nome} - idade: ${idade}`
+
+        alert('o usuário ' +  nome + ' foi cadastrado com sucesso.')
+
+        div_mensagem.innerHTML = mensagem;
+    }
+
+</script>

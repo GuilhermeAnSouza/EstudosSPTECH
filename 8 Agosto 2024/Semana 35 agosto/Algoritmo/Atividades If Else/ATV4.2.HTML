@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Valor pizza: <input id="input_pizza" type="text">
+    Valor amigos: <input id="input_amigos" type="text">
+    <button onclick="verificar()">rola pizza?</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var pizza= Number(input_pizza.value);
+        var amigos = Number(input_amigos.value);
+        var valor = pizza/amigos;
+
+        if (valor<=20) {
+            div_mensagem.innerHTML = "cada amigo vai pagar "+valor;
+        }
+        
+        if (valor>20) {
+            div_mensagem.innerHTML = "cada amigo vai pagar "+valor+"  <b style='color:red; font-style:italic;'> deu ruim, muito cara"
+        }
+    }
+
+
+</script>   

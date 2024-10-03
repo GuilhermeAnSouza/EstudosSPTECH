@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Meta de vendas: <input id="inputMeta" type="text">
+    Total de vendas: <input id="inputTotal" type="text">
+    <button onclick="verificar()">Analisar vendas</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var meta = Number(inputMeta.value)
+        var total = Number(inputTotal.value)
+        var percentual = (total/meta)*100
+
+        if (percentual < 100){
+        div_mensagem.innerHTML = `Meta não atingida, atendeu apenas ${percentual}%`
+        }
+        else if (percentual == 100){
+        div_mensagem.innerHTML = `Meta atingida, parabéns!`
+        }
+        else {
+             div_mensagem.innerHTML = `"Meta ultrapassada! Ultrapassou em ${percentual-100}%`
+        }  
+     }
+
+
+</script>   

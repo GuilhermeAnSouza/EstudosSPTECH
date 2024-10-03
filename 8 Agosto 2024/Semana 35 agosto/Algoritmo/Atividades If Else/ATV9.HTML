@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Ultima SITCOM assistida: <input id="inputSitcom" type="text">
+    Episódios que assistiu: <input id="inputEpisodios" type="text">
+    <button onclick="verificar()">Verificar Nivel</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+    function verificar() {
+        var sitcom = inputSitcom.value
+        var episodios =  Number(inputEpisodios.value)
+        var total = 22*episodios
+        var tempo = 60*30
+        var mensagem = `Vejo que você gosta da séria ${sitcom}`
+        
+        if (total>tempo) {
+            div_mensagem.innerHTML = `${mensagem} Uau, você realmente gosta dessa série!`
+        }
+        else 
+        div_mensagem.innerHTML = mensagem
+    }
+
+
+</script>   

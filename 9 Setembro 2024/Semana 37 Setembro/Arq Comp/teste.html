@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Número em outra base: <input id="inputOutraBase" type="text">
+    Base do número <input id="inputBaseNum" type="text">
+    Número Decimal: <input id="inputNumDeci" type="text">
+    Base de destino: <input id="inputDesti" type="text">
+    <button onclick="converterParaDecimal()">Converter para Decimal</button>
+    <button onclick="converterParaBase()">Converter para Base</button>
+    <div id="div_mensagem"></div>
+
+    <script>
+       function charParaValor(char) {
+            var codigo = char.charCodeAt(0);
+
+            if (codigo >= 48 && codigo <= 57) {
+                // '0' a '9'
+                return codigo - 48;
+            } else if (codigo >= 65 && codigo <= 90) {
+                // 'A' a 'Z'
+                return codigo - 65 + 10;
+            } else if (codigo >= 97 && codigo <= 122) {
+                // 'a' a 'z'
+                return codigo - 97 + 10;
+            }
+            
+        }
+
+        function baseParaDecimal(numero, base) {
+            var decimal = 0
+            var expoente = 0;
+            for (var i = numero.length - 1; i >= 0; i--) {
+                var valorDigito = charParaValor(numero[i]);
+                decimal += valorDigito * Math.pow(base, expoente++);
+            }
+            return decimal;
+        }
+
+        function decimalParaBase(decimal, base) {
+            var resultado = '';
+            while (decimal > 0) {
+                resultado = (decimal % base).toString() + resultado;
+                decimal = Math.floor(decimal / base);
+            }
+            return resultado 
+        }
+
+        function converterParaDecimal() {
+            var numero = inputOutraBase.value;
+            var base = inputBaseNum.value
+            div_mensagem.innerHTML = "Resultado em decimal: " + baseParaDecimal(numero, base);
+        }
+
+        function converterParaBase() {
+            var decimal = inputNumDeci.value;
+            var base = inputDesti.value;
+            div_mensagem.innerHTML = "Resultado na base " + base + ": " + decimalParaBase(decimal, base);
+        }
+    </script>
+</body>
+</html>

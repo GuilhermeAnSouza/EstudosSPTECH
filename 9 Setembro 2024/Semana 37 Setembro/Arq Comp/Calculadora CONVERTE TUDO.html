@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .fundo{
+            background-image: linear-gradient(45deg,black, crimson);
+            height: 100vh;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+        .calculadora{
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 15px;
+            padding: 15px;
+        }
+        .button{
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+            cursor: pointer;
+            margin: 3px;
+            background-color: rgb(31,31,31);
+            border: none;
+            color: #fff;
+        }
+        .botao:hover{
+            background-color: black;
+        }
+
+        #inputDesti{
+            background-color: white;
+            width: 207px;
+            height: 30px;
+            margin: 5px;
+            font-size: 25px;
+            color: black;
+            text-align: right;
+            padding: 5px;
+        }
+
+        #inputBaseNum{
+            background-color: white;
+            width: 207px;
+            height: 30px;
+            margin: 5px;
+            font-size: 25px;
+            color: black;
+            text-align: right;
+            padding: 5px;
+        }
+
+        #inputOutraBase{
+            background-color: white;
+            width: 207px;
+            height: 30px;
+            margin: 5px;
+            font-size: 25px;
+            color: black;
+            text-align: right;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class='fundo'>
+    <div class='calculadora'> 
+        <h1>Calculadora</h1>
+<input type="text" id="inputOutraBase">
+<input type="text" id="inputBaseNum">
+<input type="text" id="inputDesti">
+
+    
+    <button onclick="converterBases()">Converter entre Bases</button>
+        <button class="button" onclick="insert('10')">dec</button>
+        <button class="button" onclick="insert('8')">oct</button>
+        <button class="button" onclick="insert('16')">Hex</button>
+        <button class="button" onclick="insert('2')">bin</button> <br>
+        <button class="button" onclick="insert('7')">7</button>
+        <button class="button" onclick="insert('8')">8</button>
+        <button class="button" onclick="insert('9')">9</button> <br>
+        <button class="button" onclick="insert('4')">4</button>
+        <button class="button" onclick="insert('5')">5</button>
+        <button class="button" onclick="insert('6')">6</button> <br>
+        <button class="button" onclick="insert('1')">1</button>
+        <button class="button" onclick="insert('2')">2</button>
+        <button class="button" onclick="insert('3')">3</button>
+
+
+
+
+        <div id="div_mensagem"></div>
+</body>
+</html>
+    </div>
+</div>
+<script>
+    function insert(num){
+       var numero = base.innerHTML
+       base.innerHTML = numero + num
+    }
+
+    function clean(){
+        base.innerHTML = ''
+    }
+
+    function charParaValor(char) {
+        var codigo = char.charCodeAt(0)
+        if (codigo >= 48 && codigo <= 57) {
+            return codigo - 48
+        } else if (codigo >= 65 && codigo <= 90) {
+            return codigo - 65 + 10
+        } else if (codigo >= 97 && codigo <= 122) {
+            return codigo - 97 + 10
+        }
+    }
+
+    function baseParaDecimal(numero, base) {
+        var decimal = 0;
+        var expoente = 0;
+        for (var i = numero.length - 1; i >= 0; i--) {
+            var valorDigito = charParaValor(numero[i]);
+            decimal += valorDigito * Math.pow(base, expoente++);
+        }
+        return decimal;
+    }
+
+
+    function decimalParaBase(decimal, base) {
+        var resultado = '';
+        while (decimal > 0) {
+            var resto = decimal % base;
+            if (resto >= 10) {
+                resultado = String.fromCharCode(resto - 10 + 65) + resultado;
+            } else {
+                resultado = resto.toString() + resultado;
+            }
+            decimal = Math.floor(decimal / base);
+        }
+        return resultado || '0';
+    }
+
+    function converterParaDecimal() {
+        var numero = inputOutraBase.value;
+        var base = inputBaseNum.value
+        div_mensagem.innerHTML = "Resultado em decimal: " + baseParaDecimal(numero, base);
+    }
+    function converterParaBase() {
+        var decimal = inputNumDeci.value;
+        var base = inputDesti.value;
+        div_mensagem.innerHTML = "Resultado na base " + base + ": " + decimalParaBase(decimal, base);
+    }
+</script>

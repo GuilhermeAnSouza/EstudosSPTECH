@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    pessoa que você mais ama: <input type="text" id="inputAmor">
+    O quanto que você ama: <input type="text" id="inputAma">
+    <button onclick='verificar()'id="button">Expressar amor</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function verificar(){
+        var nome = inputAmor.value
+        var ama = Number(inputAma.value)
+        mensagem = ''
+
+        for(contador = 0; contador <= ama; contador++){
+            mensagem += `${nome}, eu te amo! Sempre lembre disso<br>`
+        }
+
+        div_mensagem.innerHTML = mensagem
+
+    }
+
+</script>

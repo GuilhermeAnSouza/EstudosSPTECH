@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Login: <input type="text" id="inputLogin">
+    Senha: <input type="text" id="inputSenha">
+    Informação pessoal: <input type="text" id="inputInfo">
+    <button onclick="resultado()" id="button">Autenticar</button>
+    <div id="div_mensagem"></div>
+    <div id="div_mensagem1"></div>
+</body>
+
+<script>
+
+    var tentativas = 3
+    div_mensagem1.innerHTML = `Você ainda tem ${tentativas} tentativas`
+
+    function resultado() {
+        var login = inputLogin.value
+        var senha = inputSenha.value
+        var info = inputInfo.value
+
+        if (login == 'ana' && senha == "braga" && (info == "1949" || info == "louro josé") && tentativas > 0 ){
+            tentativas = 3
+            div_mensagem.innerHTML = 'Usuário autenticado'
+           div_mensagem1.innerHTML = `Você ainda tem ${tentativas} tentativas`
+        }else if (tentativas <= 1){
+            tentativas--
+            div_mensagem.innerHTML = 'BLOQUEADO'
+            div_mensagem1.innerHTML = `Você ainda tem 0 tentativas`
+
+        }else{
+            tentativas--
+            div_mensagem.innerHTML = 'Falha na autenticação'
+            div_mensagem1.innerHTML = `Você ainda tem ${tentativas} tentativas`
+        }
+    }
+
+</script>

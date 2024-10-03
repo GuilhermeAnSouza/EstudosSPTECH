@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor até de nome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #1c1c1c;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            color: white;
+            position: relative;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 12px);
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 4px;
+            background-color: #555;
+            color: white;
+            font-size: 18px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #e67e22;
+        }
+
+        .base-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+
+        .base-buttons button {
+            width: 22%;
+            background-color: #808080;
+            color: white;
+            border-radius: 4px;
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .base-buttons button:hover {
+            background-color: #696969;
+        }
+
+        #div_mensagem {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #444;
+            border: 1px solid #555;
+            border-radius: 4px;
+            color: white;
+        }
+
+        .dica-flutuante {
+            display: none; 
+            position: absolute;
+            top: 45px;
+            right: -160px;
+            width: 150px;
+            background-color: #f39c12;
+            color: white;
+            padding: 5px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .dica-flutuante::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -10px;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent #f39c12 transparent transparent;
+        }
+    </style>
+</head>
+<body>
+    <h1>Conversor de Bases</h1>
+    <div class="container">
+        <label for="inputOutraBase">Número em outra base:</label>
+        <input id="inputOutraBase" type="text">
+        <div id="dicaFlutuante" class="dica-flutuante">tente colocar o seu nome aqui </div>
+
+        <label for="inputBaseNum">Base do número:</label>
+        <input id="inputBaseNum" type="text">
+
+        <div class="base-buttons">
+            <button onclick="selecionarBaseOrigem(2)">Binário</button>
+            <button onclick="selecionarBaseOrigem(8)">Octal</button>
+            <button onclick="selecionarBaseOrigem(10)">Decimal</button>
+            <button onclick="selecionarBaseOrigem(16)">Hexadec</button>
+        </div>
+        <br>
+        <button onclick="conversorDeNome()">Conversor de Nome</button> 
+        <br>
+        <br>
+        <label for="inputDesti">Base de destino:</label>
+        <input id="inputDesti" type="text">
+
+        <div class="base-buttons">
+            <button onclick="selecionarBaseDestino(2)">Binário</button>
+            <button onclick="selecionarBaseDestino(8)">Octal</button>
+            <button onclick="selecionarBaseDestino(10)">Decimal</button>
+            <button onclick="selecionarBaseDestino(16)">Hexadec</button>
+        </div>
+        <br>
+        <button onclick="converterBases()">Converter entre Bases</button>
+        <div id="div_mensagem"></div>
+    </div>
+
+    <script>
+        function charParaValor(char) {
+            var codigo = char.charCodeAt(0);
+            if (codigo >= 48 && codigo <= 57) {
+                return codigo - 48;
+            } else if (codigo >= 65 && codigo <= 90) {
+                return codigo - 65 + 10;
+            } else if (codigo >= 97 && codigo <= 122) {
+                return codigo - 97 + 10;
+            }
+        }
+
+        function baseParaDecimal(numero, base) {
+            var decimal = 0;
+            var expoente = 0;
+            for (var i = numero.length - 1; i >= 0; i--) {
+                var valorDigito = charParaValor(numero[i]);
+                decimal += valorDigito * Math.pow(base, expoente++);
+            }
+            return decimal;
+        }
+
+        function decimalParaBase(decimal, base) {
+            var resultado = ''
+            while (decimal > 0) {
+                var resto = decimal % base
+                if (resto >= 10) {
+                    resultado = String.fromCharCode(resto - 10 + 65) + resultado
+                } else {
+                    resultado = resto.toString() + resultado
+                }
+                decimal = Math.floor(decimal / base)
+            }
+            return resultado || '0'
+        }
+
+        function selecionarBaseOrigem(base) {
+            inputBaseNum.value = base
+        }
+
+        function selecionarBaseDestino(base) {
+            inputDesti.value = base
+        }
+
+        function mostrarResultadosEmBasesConhecidas(decimal) {
+            var resultadoBinario = decimalParaBase(decimal, 2)
+            var resultadoOctal = decimalParaBase(decimal, 8)
+            var resultadoDecimal = decimal
+            var resultadoHexa = decimalParaBase(decimal, 16)
+
+            return `
+                <p>Binário: ${resultadoBinario} (Base 2)</p>
+                <p>Octal: ${resultadoOctal} (Base 8)</p>
+                <p>Decimal: ${resultadoDecimal} (Base 10)</p>
+                <p>Hexadecimal: ${resultadoHexa} (Base 16)</p>
+            `
+        }
+
+        function converterBases() {
+            var numero = inputOutraBase.value
+            var baseOrigem = inputBaseNum.value
+            var baseDestino = Number(inputDesti.value)
+
+            var decimal = baseParaDecimal(numero, baseOrigem)
+            var resultado = decimalParaBase(decimal, baseDestino)
+
+            var resultadosConhecidos = mostrarResultadosEmBasesConhecidas(decimal)
+
+            div_mensagem.innerHTML = `
+                <p>Resultado: ${resultado} (Base ${baseDestino})</p>
+                ${resultadosConhecidos}
+            `
+        }
+
+        function conversorDeNome() {
+            inputBaseNum.value = 36
+            inputDesti.value = 10
+            dicaFlutuante.style.display = 'block' // Exibe a dica flutuante
+        }
+    </script>
+</body>
+</html>

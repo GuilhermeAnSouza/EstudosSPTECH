@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Temperatura corpo humano: <input id="inputTemp" type="text">
+    <button onclick="verificar()">Temperatura</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var temp = Number(inputTemp.value)
+        
+        if (temp <= 14) div_mensagem.innerHTML =  "Congelante"
+        else if (temp <= 21) div_mensagem.innerHTML = "Com Frio"
+        else if (temp <= 24) div_mensagem.innerHTML = "Confortável"
+        else if (temp <= 31) div_mensagem.innerHTML = "Com Calor"
+        else div_mensagem.innerHTML = "Calor escaldante"
+    }
+
+
+</script>   

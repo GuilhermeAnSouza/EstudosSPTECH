@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Time de São Paulo: <input id="inputTime" type="text">
+    <button onclick="verificar()">Fale sobre esse time</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var time = inputTime.value
+        
+        if (time == 'São Paulo'){
+        div_mensagem.innerHTML = "Salve o Tricolor paulista"
+        div_mensagem.style.backgroundColor = "black"
+        div_mensagem.style.color = "red"
+        }
+        else if (time == 'Corinthians'){
+        div_mensagem.innerHTML = "Salve o Corinthians"
+        div_mensagem.style.backgroundColor = "black"
+        div_mensagem.style.color = "white"
+        }
+        else if (time == 'Palmeiras'){
+        div_mensagem.innerHTML = "Salve o alviverde imponente"
+        div_mensagem.style.backgroundColor = "green"
+        div_mensagem.style.color = "white"
+        }
+        else {
+             div_mensagem.innerHTML = "Agora quem dá a bola é o Santos"
+             div_mensagem.style.backgroundColor = "white"
+            div_mensagem.style.color = "black"
+        }  
+     }
+
+
+</script>   

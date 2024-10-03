@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+Peça: <input type="text" id="inputPeca">
+valor: <input type="text" id="inputValor">
+<button onclick="verificar()" id="button">desconto</button>
+<div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function verificar(){
+    var peca = inputPeca.value
+    var valor = inputValor.value 
+
+    if (peca >= 3 || valor >= 170){
+    div_mensagem.innerHTML = `Sua compra foi de ${valor}, com o desconto de ${valor*0.10}, o preço total ficou de ${valor*0.90}`
+} else if (peca >= 5 || valor >= 250){
+    div_mensagem.innerHTML = `Sua compra foi de ${valor}, com o desconto de ${valor*0.15}, o preço total ficou de ${valor*0.85}`
+    } else if (peca >= 10 || valor >= 500){
+    div_mensagem.innerHTML = `Sua compra foi de ${valor}, com o desconto de ${valor*0.25}, o preço total ficou de ${valor*0.75}`
+    } else div_mensagem.innerHTML = `Sua compra foi de ${valor}, sem desconto`
+
+    }
+
+
+</script>

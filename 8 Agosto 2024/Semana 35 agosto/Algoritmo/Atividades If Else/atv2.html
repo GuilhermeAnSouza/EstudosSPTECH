@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Refri: <input id="input_num" type="text">
+    <button onclick="verificar()">quantos Refri</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var num = Number(input_num.value);
+        var total = num*365;
+        var mensagem = total
+
+        if (total<=500) {
+            div_mensagem.innerHTML = total;
+        }
+        
+        if (total>500) {
+            div_mensagem.innerHTML = total+"vai morrer gordão";
+        }
+    }
+
+
+</script>

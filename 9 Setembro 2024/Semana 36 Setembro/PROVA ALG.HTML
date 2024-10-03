@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantidade de energia consumida em kWh: <input id="inputKwh" type="number"><br>
+    Bandeira tarifária da energia: <input id="inputBandeira" type="text"><br>
+    Volume de água consumido em litros: <input id="inputAgua" type="number"><br>
+    Quantidade de vazamentos de água na casa: <input id="inputVazamento" type="number"><br>
+    Volume de gás consumido em litros: <input id="inputGas" type="number"><br>
+    Quantidade de MB (megabyte) do plano de internet: <input id="inputMb" type="number"><br>
+    Linha telefônica vinculada ao plano de internet: <input id="inputTel" type="text">
+
+
+    <button onclick="verificar()">Calcular Despesas Fixas</button>
+    <div id="div_mensagem"></div>
+    <div id="div_mensagem1"></div>
+</body>
+</html>
+<script>
+
+    function verificar() {
+        var kwh = Number(inputKwh.value)
+        var bandeira = inputBandeira.value
+        var agua = Number(inputAgua.value)
+        var vazamento = Number(inputVazamento.value)
+        var gas = Number(inputGas.value)
+        var mb = Number(inputMb.value)
+        var tel = inputTel.value
+        var bandVerde = kwh * 0.75
+        var bandAmarela = kwh * 0.90
+        var bandVermelha = kwh 
+        var precoAgua = (agua * 3.5) + (vazamento*10)
+        var precoVaz = agua * 13.5
+        var precoGas = gas * 2.5
+        var precoInter = mb * 0.80
+        var mensagem = `Com o consumo de ${agua} litros de água contendo ${vazamento} vazamentos, a conta de água totaliza R$ ${precoAgua}. <br> 
+                        Com o consumo de ${gas} litros de gás, a conta de gás totaliza R$ ${precoGas} `
+
+
+
+ 
+    
+
+    if (tel=='sim'){
+    var precoInter = precoInter*1.25
+    div_mensagem1.innerHTML = `Com o consumo de ${mb} MB de internet, o valor do plano de internet/telefone totaliza R$ ${precoInter}`
+
+    
+    }
+
+    if (tel=='não'){
+    var precoInter = precoInter*0.925
+    div_mensagem1.innerHTML = `Com o consumo de ${mb} MB de internet, o valor do plano de internet/telefone totaliza R$ ${precoInter}`
+        
+    }   
+   
+    if (bandeira=='verde') {
+
+    div_mensagem.innerHTML = `Com o consumo de ${kwh} kWh na bandeira ${bandeira}, a conta de energia totaliza R$ ${bandVerde}.<br> ${mensagem} <br>  
+    Gasto total de despesas mensal: ${bandVerde + precoGas + precoAgua + precoInter} ` 
+    }
+
+    if (bandeira=='amarela') {
+
+    div_mensagem.innerHTML = `Com o consumo de ${kwh} kWh na bandeira ${bandeira}, a conta de energia totaliza R$ ${bandAmarela}.<br> ${mensagem} <br>
+    Gasto total de despesas mensal: ${bandAmarela + precoGas + precoAgua + precoInter }`
+    }
+
+    if (bandeira=='vermelha') {
+
+    div_mensagem.innerHTML = `Com o consumo de ${kwh} kWh na bandeira ${bandeira}, a conta de energia totaliza R$ ${bandVermelha}.<br> ${mensagem}<br>
+    Gasto total de despesas mensal: ${bandVermelha + precoGas + precoAgua + precoInter}`
+    }
+
+
+}
+
+
+
+</script>   

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    NUMERO: <input id="inputNumero" type="number">
+    <button onclick="MULTIPLACAR()">*</button>
+    <button onclick="DIVIDIR()">/</button>
+    <button onclick="SUBTRAIR()">-</button>
+    <button onclick="SOMAR()">+</button>
+    <button onclick="MAISUM()">+1</button>
+    <button onclick="MENOSUM()">-1</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+    var TOTAL = 1
+    
+    div_mensagem.innerHTML = TOTAL
+
+    function MULTIPLACAR() {
+    var num = Number(inputNumero.value)
+    TOTAL = TOTAL * num
+    // TOTAL *= num
+    div_mensagem.innerHTML = TOTAL    
+    }
+
+    function DIVIDIR() {
+    var num = Number(inputNumero.value)
+    // TOTAL = TOTAL / num
+    TOTAL /= num
+    div_mensagem.innerHTML = TOTAL    
+    }
+
+    function SUBTRAIR() {
+    var num = Number(inputNumero.value)
+    TOTAL = TOTAL - num
+    // TOTAL -= num
+    div_mensagem.innerHTML = TOTAL    
+    }
+
+    function SOMAR() {
+    var num = Number(inputNumero.value)
+    // TOTAL = TOTAL + num
+    TOTAL += num
+    div_mensagem.innerHTML = TOTAL    
+    }
+
+    function MAISUM() {
+    var num = Number(inputNumero.value)
+    // TOTAL = TOTAL + 1
+    // TOTAL += 1
+    TOTAL ++
+    div_mensagem.innerHTML = TOTAL    
+    }
+
+    function MENOSUM() {
+    var num = Number(inputNumero.value)
+    TOTAL = TOTAL - 1
+     // TOTAL -= 1
+     // TOTAL --
+    div_mensagem.innerHTML = TOTAL    
+    }
+</script>

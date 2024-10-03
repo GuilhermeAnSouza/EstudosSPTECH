@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    NOME DO GUERREIRO: <input id="inputGuerreiro" type="text">
+    KI PADRÃO DO GUERREIRO: <input id="inputKi" type="text">
+
+    <button onclick="MostreKI()">VER KI EM CADA FORMA</button>
+</body>
+</html>
+
+<script>
+    function MostreKI(){
+        var GUERREIRO = inputGuerreiro.value;
+        var KI = inputKi.value;
+        var X50 = (50*KI);
+        var X100 = (100*X50)
+        var mensagem1 = `GUERREIRO ${GUERREIRO} AUMENTOU ${X50-KI} DE KI, FICANDO COM ${X50} DE KI`
+        var mensagem2 = `GUERREIRO ${GUERREIRO} AUMENTOU ${X100-X50} DE KI, FICANDO COM ${X100} DE KI`
+        alert(mensagem1)
+        alert(mensagem2)
+    }
+</script>

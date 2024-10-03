@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Valor a ser depositado: <input id="input_manda" type="text">
+    Valor a ser retirado: <input id="input_recebe" type="text">
+    <button onclick="deposito()">depositar</button>
+    <button onclick="retirada()">retirar</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+    var saldo = 0
+
+    function deposito() {
+    var manda = Number(input_manda.value)
+    saldo = saldo + manda    
+        alert(`Depósito de R$${manda} efetuado! Saldo atual: R$${saldo}`)
+        }
+    
+    function retirada() {
+    var recebe = Number(input_recebe.value)
+    saldo = saldo - recebe    
+    
+        alert(`Retirada de R$${recebe} efetuado! Saldo atual: R$${saldo}`)
+        }
+
+
+</script>

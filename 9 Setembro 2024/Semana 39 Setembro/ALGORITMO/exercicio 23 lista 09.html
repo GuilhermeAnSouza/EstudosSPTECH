@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantidade elefantes: <input type="text" id="inputElefante">
+    <button onclick="verificar()">Atazanar a médium</button>
+    <div id="div_mensagem"></div>
+    <div id="div_mensagem1"></div>
+</body>
+</html>
+
+<script>
+    function verificar(){
+        mensagem = ''
+        var elefante = Number(inputElefante.value)
+
+        for(contador= 2; contador<=elefante; contador++){
+            mensagem += `1 elefante incomoda muita gente!<br>
+                        ${contador} elefantes `
+            for (cont = 1; cont <= contador; cont++){
+                mensagem += 'incomodam, '
+            }
+            mensagem += "muito mais!<br>"
+            div_mensagem.innerHTML = mensagem
+        }
+
+    }
+
+
+
+</script>

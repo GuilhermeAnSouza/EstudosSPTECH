@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Salário: <input id="inputSalario" type="text">
+    Adicional Mensal: <input id="inputAdicional" type="text">
+    Bonus: <input id="inputBonus" type="text">
+    <button onclick="verificar()">Analisar Minha Renda</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+
+
+    function verificar() {
+        var salario = Number(inputSalario.value)
+        var adicional = Number(inputAdicional.value)
+        var bonus = Number(inputBonus.value)
+        var bruto = salario + adicional + bonus
+        var INSS1 = bruto*0.10
+        var FGTS1 = bruto*0.08
+        var liquido1 = (bruto-INSS1)-FGTS1
+        
+       
+
+    if (bruto>=10000) {
+        var IRCRU = bruto*0.125
+        var IR = bruto*0.875
+        var INSS = IR*0.10
+        var FGTS = IR*0.08
+        var liquido = (IR-INSS)-FGTS
+        var mensagem1 = `ANÁLISE DA SUA RENDA <br> Com o salário de R$${salario}, com adicional de R$${adicional} e bônus de R$${bonus}, você tem: <br> Bruto: R$${bruto}  <br> IR: R$${IRCRU}  <br> INSS: R$${INSS}  <br> FGTS: R$${FGTS} <br> Líquido: R$${liquido}`
+            
+
+     div_mensagem.innerHTML = `${mensagem1} <br> Com a renda de R$${liquido}, é recomendado poupar R$${liquido*0.15}, para que em um ano tenha poupado R$${(liquido*0.15)*12}`
+    }
+
+    if(bruto<10000){
+        var mensagem2 = `ANÁLISE DA SUA RENDA <br> Com o salário de R$${salario}, com adicional de R$${adicional} e bônus de R$${bonus}, você tem: <br> Bruto: R$${bruto}  <br> IR: R$0  <br> INSS: R$${INSS1}  <br> FGTS: R$${FGTS1} <br> Líquido: R$${liquido1}`
+    div_mensagem.innerHTML =  `${mensagem2} <br> Com a renda de R$${liquido1}, é recomendado poupar R$${liquido1*0.15}, para que em um ano tenha poupado R$${(liquido1*0.15)*12}`
+    }
+    
+    if(liquido1<=2500) {
+        var mensagem2 = `ANÁLISE DA SUA RENDA <br> Com o salário de R$${salario}, com adicional de R$${adicional} e bônus de R$${bonus}, você tem: <br> Bruto: R$${bruto}  <br> IR: R$0  <br> INSS: R$${INSS1} <br>  FGTS: R$${FGTS1} <br> Líquido: R$${liquido1}`
+    div_mensagem.innerHTML = `${mensagem2} <br> Com a renda de R$${liquido1}, é recomendado obter renda extra para realizar uma poupança. `
+        
+    } 
+
+}
+
+
+
+</script>   

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Tipo de passageiro:
+    <select id="inputPassageiro">
+      <option value="comum">Comum</option>
+      <option value="estudante">Estudante</option>
+      <option value="idoso">Idoso/PNE</option>
+    </select>
+
+    passagem: <select id="inputPassagem">
+        <option value="unica">Unica</option>
+        <option value="integracao">Integração</option>
+    </select>
+
+    Quantidade passagens: <input type="text" id="inputQtd">
+
+    <button onclick="calculo()" id="button">Simular preco</button>
+    <div id="div_mensagem"></div>
+
+</body>
+
+</html>
+
+<script>
+
+    function calculo() {
+        var passageiro = inputPassageiro.value
+        var passagem = inputPassagem.value
+        var quantidade = Number(inputQtd.value)
+        var valor = 0
+
+        if (passageiro == 'comum' && passagem == 'unica') {
+            valor = quantidade * 4.40
+
+        }else if (passageiro == 'comum' && passagem == 'integracao'){
+             valor = quantidade * 5.90
+
+        }else if (passageiro == 'estudante' && passagem == 'unica'){
+            valor = quantidade * (4.40 / 2)
+
+        }else if (passageiro == 'estudante' && passagem == 'integracao'){
+            valor = quantidade * (5.90 / 2)
+        }else
+            valor = 0
+
+ div_mensagem.innerHTML = `Valor da passagem escolhida: R$${valor}` 
+
+    }
+</script>

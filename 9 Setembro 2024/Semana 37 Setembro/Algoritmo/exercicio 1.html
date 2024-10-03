@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Altura: <input id="inputAlt" type="text">
+    <button onclick="verificar()">Analisar estatura</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var altura= Number(inputAlt.value)
+        
+        if (altura <= 165){ div_mensagem.innerHTML =  "Você pode ser piloto de corrida"
+        } else if (altura > 180) div_mensagem.innerHTML = "Você pode ser jogador de basquete/volei"
+        else div_mensagem.innerHTML = "Você pode ser jogador de futebol"
+    }
+
+
+</script>   

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Qtd pao comeu: <input id="inputPao" type="text">
+    Qtd pacote bolhacha comeu: <input id="inputBolacha" type="text">
+    Qtd copo achocolatado tomou: <input id="inputAchocolatado" type="text">
+    <button onclick="verificar()">Verificar calorias</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var pao = Number(inputPao.value)
+        var bolacha = Number(inputBolacha.value)
+        var achocolatado = Number(inputAchocolatado.value)
+        var calorias = pao*50 + bolacha*80 + achocolatado*70
+        
+        if (calorias < 200){
+        div_mensagem.innerHTML = "Parabéns, vai ficar em forma!"
+        }
+        else if (calorias <= 400){
+        div_mensagem.innerHTML = "Cuidado, vai ficar menos saudável !"
+        }
+        else {
+             div_mensagem.innerHTML = "Alerta crítico de saúde !!!"
+            }  
+     }
+
+
+</script>   

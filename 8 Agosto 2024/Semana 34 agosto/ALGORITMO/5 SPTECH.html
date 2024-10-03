@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    NOTA CONTINUADA: <input id="inputContinuada" type="text">
+    NOTA SEMESTRAL: <input id="inputSemestral" type="text">
+    NOME: <input id="inputNome" type="text">
+
+    <button onclick="media()">VER MEDIA</button>
+</body>
+</html>
+
+<script>
+    function media(){
+        var nome = inputNome.value;
+        var continuada = 0.4*inputContinuada.value;
+        var semestral = 0.6*inputSemestral.value;
+        var mediaNota = (continuada+semestral);
+        var mensagem1 = `A média de ${nome} será de ${mediaNota}`
+        alert(mensagem1)
+    }
+</script>

@@ -1,0 +1,49 @@
+<!-- 
+Receba a temperatura atual.
+Caso a temperatura esteja entre 21 e 24, exiba em um alerta:
+    "A temperatura está CONFORTÁVEL";
+Caso a tempertura esteja fora desse intervalo, exiba em um alerta:
+    "A temperatura está DESCONFORTÁVEL";
+16 DESCONFORTÁVEL
+23 CONFORTÁVEL
+27 DESCONFORTÁVEL
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    temperatura atual: <input type="text" id="input_temp" /> <br />
+    <button onclick="analisar()">Analisar</button>
+  </body>
+</html>
+
+<script>
+  function analisar() {
+    var temp = Number(input_temp.value);
+
+    // ESTRUTURA DE DECISÃO ANINHADA
+
+    // OPERADORES:
+    // +=*/ RETURN NUMBER
+    // ><==!= RETURN BOOLEAN
+    // LÓGICOS && RETURN BOOLEAN
+    // LÓGICOS && RETURN BOOLEAN
+
+    // //if (temp>= 21 && temp <= 24){
+    //   alert ('Temperatura Confortável')
+    // }else {
+    //   alert("Temperatura Dtesconfortável");
+    // }
+
+    if (temp > 24 || temp < 21){
+      alert ('Temperatura desConfortável')
+    }else {
+      alert("Temperatura confortável");
+    }
+  }
+</script>

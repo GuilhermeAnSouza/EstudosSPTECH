@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantidade de volta: <input type="text" id="inputVolta">
+    <button onclick="verificar()">Iniciar corrida!</button>
+    <div id="div_mensagem"></div>
+    <div id="div_mensagem1"></div>
+</body>
+</html>
+
+<script>
+    function verificar(){
+        var mensagem = ''
+        var volta = Number(inputVolta.value)
+
+        for(contador=1; contador<=volta; contador++){
+            mensagem = `carro dando a ${contador}° volta<br>`
+            div_mensagem.innerHTML += mensagem
+        }
+        div_mensagem1.innerHTML = 'Corrida finalizada!'
+
+    }
+
+
+</script>

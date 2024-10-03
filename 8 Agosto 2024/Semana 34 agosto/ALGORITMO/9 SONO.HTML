@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    HORAS DORMIDAS: <input id='inputMimiu' type="text">
+
+    <button onclick='sono()'>calcular sono</button>
+</body>
+</html>
+
+<script>
+    function sono(){
+        var mimiu = inputMimiu.value
+        var fase1 = mimiu*0.05
+        var fase2 = mimiu*0.45
+        var fase3 = mimiu*0.30
+        var fase4 = mimiu*0.20
+        var mensagem = `Ao dormir ${mimiu} horas, você dormiu:
+        ${fase1} horas na fase 1
+        ${fase2} horas na fase 2
+        ${fase3} horas na fase 3
+        ${fase4} horas na fase REM `
+        alert(mensagem)
+    }
+
+</script>

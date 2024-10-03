@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Tabuada:
+     <select id="selectTabuada">
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+    </select>
+
+    Limite da tabuada: <input type="text" id="inputLimite">
+    
+    <button onclick="verificar()">Ver Tabuada</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function verificar(){
+        var mensagem = ''
+        var num = Number(selectTabuada.value)
+        var limite = Number(inputLimite.value)
+
+
+        for(contador=0; contador<=limite*num; contador += num){
+            var multiplicador = contador/num 
+            
+            if (multiplicador % 2 == 0){
+                mensagem += `<span style='color:blue'> ${num} X ${multiplicador} = ${contador}<br> </span>`
+            } else 
+                 mensagem += `<span style='color:red'> ${num} X ${multiplicador} = ${contador}<br> </span>`
+
+            div_mensagem.innerHTML = mensagem
+        }
+        
+    }
+
+</script>

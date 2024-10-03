@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Número (entre 0 e 200): <input type="text" id="inputNumero">
+    <button onclick="verificar()" id="botton">Viva o 7!</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function verificar(){
+        var mensagem = ''
+        var num = Number(inputNumero.value)
+
+        if (num < 0 || num > 200){
+            alert('Insira número válido')
+        } else {
+            for(contador = 0; contador <= num; contador++){
+                if (contador % 7 == 0){
+                    mensagem = `${contador}<br>`
+                }else mensagem = ''
+
+                div_mensagem.innerHTML += mensagem  
+            } 
+
+        }
+        
+
+
+    }
+
+</script>

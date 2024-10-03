@@ -1,0 +1,72 @@
+CREATE TABLE MUSICA (
+IdMusica int primary key auto_increment,
+titulo varchar(40),
+artista varchar(40),
+genero varchar(40)
+);
+
+ALTER TABLE atleta 
+ADD COLUMN funcao VARCHAR(50),
+ADD CONSTRAINT chk_funcao CHECK (funcao IN ('monitor', 'assistente', 'titular'));
+
+insert into musica (titulo, artista, genero) VALUES 
+	('musica 1', 'artista 1', 'genero 1'),
+    ('musica 2', 'artista 1', 'genero 2'),
+    ('musica 3', 'artista 2', 'genero 3'),
+    ('musica 4', 'artista 3', 'genero 4'),
+    ('musica 5', 'artista 4', 'genero 4'),
+    ('musica 6', 'artista 4', 'genero 5'),
+    ('musica 7', 'artista 5', 'genero 6'),
+    ('musica 8', 'artista 6', 'genero 6');
+
+select * from musica;
+
+alter table musica add column curtidas int;
+
+update musica set curtidas = '12'
+	where idmusica = '1';
+
+update musica set curtidas = '102'
+	where idmusica = '2';
+
+update musica set curtidas = '203'
+	where idmusica = '3';
+
+update musica set curtidas = '50'
+	where idmusica = '4';
+
+update musica set curtidas = '2'
+	where idmusica = '5';
+
+update musica set curtidas = '30'
+	where idmusica = '6';
+
+update musica set curtidas = '15'
+	where idmusica = '7';
+
+update musica set curtidas = '27'
+	where idmusica = '8';	
+
+alter table musica modify column artista varchar(80);
+
+update musica set curtidas = '3'
+	where idMusica = '1';
+    
+update musica set curtidas = '7'
+	where idmusica in (2,3);
+
+update musica set titulo = 'eduardo e monica'
+	where idmusica = '5';
+
+delete from musica 
+	where idmusica = '4';
+    
+select * from musica 
+	where genero != 'funk';
+    
+select * from musica
+	where curtidas >= 20;
+
+desc musica;
+
+truncate musica;

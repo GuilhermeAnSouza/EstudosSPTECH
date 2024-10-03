@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    RECEBA NÚMERO: <input type="text" id="inputNum">
+    <button onclick="verificar()">Ver divisores</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function verificar(){
+        var mensagem = ''
+        var num = Number(inputNum.value)
+
+        for (contador = 0; contador <=num; contador++){
+           if(num%contador == 0){
+           mensagem += `${contador}<br>`
+            }else {
+                mensagem += ''
+            }
+            
+            div_mensagem.innerHTML = mensagem
+        }
+
+    }
+
+
+
+</script>

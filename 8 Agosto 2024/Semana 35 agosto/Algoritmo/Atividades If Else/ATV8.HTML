@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Homens: <input id="inputHomem" type="text">
+    Mulheres: <input id="inputMulher" type="text">
+    <button onclick="verificar()">Analisar peso</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+    function verificar() {
+        var homem = Number(inputHomem.value)
+        var mulher =  Number(inputMulher.value)
+        var peso = (homem*80)+(mulher*60)
+        var mensagem = `Este elevador suporta 800 kg e o peso estimado desta lotação é de ${peso}kg`
+        
+        if (peso<800) {
+            div_mensagem.innerHTML = mensagem
+        }
+        else 
+        div_mensagem.innerHTML = `<b style='color:blue;'>${mensagem}</b>`
+    }
+
+
+</script>   

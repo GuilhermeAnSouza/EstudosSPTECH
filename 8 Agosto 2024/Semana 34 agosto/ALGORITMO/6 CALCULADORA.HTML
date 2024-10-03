@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    numero 1: <input id='inputN1' type="text">
+    numero 2: <input id='inputN2' type="text">
+
+    <button onclick='multiplicar()'>multiplicar</button>
+    <button onclick='dividir()'>dividir</button>
+    <button onclick='subtrair()'>subtrair</button>
+    <button onclick='somar()'>somar</button>
+</body>
+</html>
+
+<script>
+    function multiplicar(){
+        var n1 = inputN1.value
+        var n2 = inputN2.value
+        var mensagem = ` O produto entre ${n1} e ${n2} é ${n1*n2}`
+        alert(mensagem)
+    }
+
+    function dividir(){
+        var n1 = inputN1.value
+        var n2 = inputN2.value
+        var mensagem = ` A razão entre ${n1} e ${n2} é ${n1/n2}`
+        alert(mensagem)
+            
+    }
+
+    function subtrair(){
+        var n1 = inputN1.value
+        var n2 = inputN2.value
+        var mensagem = `A diferença entre ${n1} e ${n2} é ${n1-n2}`
+        alert(mensagem)
+    }
+
+    function somar(){
+        var n1 = Number(inputN1.value)
+        var n2 = Number(inputN2.value)
+        var mensagem = ` A soma entre ${n1} e ${n2} é ${n1+n2}`
+        alert(mensagem)
+    }
+
+
+</script>

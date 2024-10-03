@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    valor passagem: <input id='inputpassagem' type="text">
+    qtd viagem: <input id='inputviagem' type="text">
+    distância (km): <input id='inputdistancia' type="text">
+
+    <button onclick='VT()'>Calcular VT</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function VT(){
+        var passagem = Number(inputpassagem.value)
+        var viagem = Number(inputviagem.value)
+        var distancia = Number(inputdistancia.value)
+        var valor = (passagem*viagem)*0.9
+        var uber = (distancia*7.5)*(viagem*0.1)
+        var total = uber+valor
+        var mensagem = `Você vai gastar R$${total} por mês com transporte`
+        div_mensagem.innerHTML = mensagem;
+    }
+
+</script>

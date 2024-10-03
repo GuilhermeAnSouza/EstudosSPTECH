@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    kWH consumido por mês: <input id="input_luz" type="text">
+    <button onclick="verificar()">calcular conta de luz</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function verificar() {
+        var luz= Number(input_luz.value)*0.85;
+        var mensagem = "a conta será "+luz
+        var mensagem1 = "a conta será "+luz*0.9
+        if (luz<=100) {
+            alert(mensagem1)
+        }
+        
+        if (luz>100) {
+            alert(mensagem1)
+        }
+    }
+
+
+</script>   

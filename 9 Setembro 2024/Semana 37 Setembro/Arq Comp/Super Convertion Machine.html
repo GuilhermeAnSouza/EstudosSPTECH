@@ -1,0 +1,463 @@
+
+<!-- saved from url=(0062)https://supercalcmachine.github.io/calcmachine.io/binario.html -->
+<html lang="pt-br"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Super Convertion Machine</title>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Super Convertion Machine_files/style.css">
+    <script src="./Super Convertion Machine_files/script.js.download"></script>
+    <link rel="shortcut icon" href="https://supercalcmachine.github.io/calcmachine.io/codigo-binario.png" type="image/x-icon">
+    <style>
+        body {
+
+    font-size: 1em;
+
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+
+    background-image: url(https://gifimage.net/wp-content/uploads/2017/10/matrix-code-animated-gif-5.gif);
+
+}
+
+#h3_maisinformações {
+color: #ffffff;
+}
+
+#area-cabecalho {
+
+    background-color: #000000;
+  opacity: 80%;
+    padding: 15px;
+
+    text-align: center;
+
+}
+
+
+
+#area-logo,
+
+#area-menu {
+ 
+    padding: 10px;
+}
+
+
+
+#area-principal {
+
+    width: 920px;
+
+    margin: 0 auto;
+
+    padding: 15px;
+
+}
+
+
+
+#area-postagens {
+
+    width: 550px;
+
+    float: left;
+
+}
+
+
+
+#area-lateral {
+
+    width: 360px;
+
+    float: right;
+
+}
+
+
+
+.postagem {
+
+    padding: 20px;
+
+    margin-bottom: 20px;
+
+    background: #000000;
+
+    opacity: 80%;
+
+}
+
+.border{
+border-bottom: #ffffff;
+}
+
+.conteudo-lateral {
+
+    background: #000000;
+
+    padding: 10px;
+
+    margin-bottom: 20px;
+     
+    opacity: 80%;
+}
+
+
+
+.postagem-lateral {
+
+    font-size: 0.8em;
+
+    padding: 5px;
+
+    border-bottom: 1px dotted #000000;
+    opacity: 80%;
+}
+
+
+
+#rodape {
+    text-decoration-color: #f4f4f4;
+    clear: both ;
+
+    text-align: center;
+
+    padding: 15px;
+
+    background: #000000;
+    width: 520px;
+    opacity: 80%;
+}
+
+
+
+a {
+
+    text-decoration: none;
+
+}
+
+
+
+a:link,
+
+a:visited {
+
+    color: #001975;
+
+}
+
+
+
+a:hover {
+    background-color: rgb(0, 0, 0);
+    text-decoration: underline;
+
+}
+
+
+
+#area-cabecalho a:link,
+
+#area-cabecalho a:visited {
+
+    color: #000000;
+
+    padding: 8px 12px;
+
+}
+
+
+
+#area-cabecalho a:hover {
+
+    color: #000000;
+
+    background: grey;
+    
+    text-decoration: none;
+
+}
+
+
+
+h1 {
+
+    color: #ffffff;
+
+    font-size: 2.5em;
+
+}
+
+
+
+h2 {
+
+    color: #fffefe;
+
+}
+
+
+
+h3 {
+
+    color: #ffffff;
+
+    background: #41664b;
+
+    padding: 5px;
+
+}
+
+
+
+.branco {
+
+    color: white;
+
+}
+
+
+
+.preto {
+
+    color: rgb(255, 255, 255);
+
+}
+
+
+
+.data-postagem {
+
+    font-size: 0.8em;
+
+    border-bottom: 1px solid #f4f4f4;
+
+    padding-bottom: 10px;
+
+    margin-bottom: 10px;
+
+    display: block;
+
+}
+
+button{
+
+border-radius: 10px;
+background: none;
+border: 2px solid #57cfc3;
+transition-duration: 0.4s;
+cursor: pointer;
+padding: 2% 2%;
+font-size: 10px;
+font-weight: bold;
+height: 4%;
+}
+button:hover{
+background-color: #72d4a2;
+color: white;
+}
+
+button:active{
+transform: translateY(12px);
+}
+
+.font_white{
+color: #ffffff;
+
+}
+        
+.input_vazio{
+opacity: 0%;
+height: 0px;
+}
+    </style>
+</head>
+<body>
+    <div id="area-cabecalho">
+        <div id="area-logo">
+            <h1><span class="preto">Super Convertion Machine</span>  <span style="font-size: medium; color: greenyellow;">Beta</span></h1> 
+        </div>
+        <div id="area-menu">
+            <a style="color: #ffffff;" href="https://supercalcmachine.github.io/calcmachine.io/decimal.html">Decimal</a>
+            <a style="color: #ffffff;" href="https://supercalcmachine.github.io/calcmachine.io/binario.html">Binário</a>
+            <a style="color: #ffffff;" href="https://supercalcmachine.github.io/calcmachine.io/octa.html">Octal</a>
+            <a style="color: #ffffff;" href="https://supercalcmachine.github.io/calcmachine.io/hexa.html">Hexadecimal</a>
+        </div>
+    </div>
+    <div id="area-principal">
+        <div id="area-postagens">
+
+            <div class="postagem">
+                <h2>Binário</h2>
+                <span class="data-postagem"></span>
+                <!-- <img width="500px" src=""> -->
+                   <!--INICIO DE BINÁRIO PARA DECIMAL-->
+                <p>
+                    </p><h3 class="font_white">Binário para decimal</h3>
+                <p></p>
+                <p>
+                    <b class="font_white">
+                        &nbsp;&nbsp;1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;
+                    </b>
+                </p>                    
+                <p>
+                    <input type="checkbox" id="input_checkbox_BinDec16">
+                    <input type="checkbox" id="input_checkbox_BinDec15">
+                    <input type="checkbox" id="input_checkbox_BinDec14">
+                    <input type="checkbox" id="input_checkbox_BinDec13">
+                    <input type="checkbox" id="input_checkbox_BinDec12">
+                    <input type="checkbox" id="input_checkbox_BinDec11">
+                    <input type="checkbox" id="input_checkbox_BinDec10">
+                    <input type="checkbox" id="input_checkbox_BinDec9">
+                    <input type="checkbox" id="input_checkbox_BinDec8">
+                    <input type="checkbox" id="input_checkbox_BinDec7">
+                    <input type="checkbox" id="input_checkbox_BinDec6">
+                    <input type="checkbox" id="input_checkbox_BinDec5">
+                    <input type="checkbox" id="input_checkbox_BinDec4">
+                    <input type="checkbox" id="input_checkbox_BinDec3">
+                    <input type="checkbox" id="input_checkbox_BinDec2">
+                    <input type="checkbox" id="input_checkbox_BinDec1">
+                </p>
+                <button style="color:#ffffff;" onclick="ContaBinarioDecimal()">
+                    Calcular
+                </button>
+                <br>
+                <h4 class="font_white">Resultado: <a id="BiDe">49939</a></h4>
+                <h4 class="font_white"><input type="checkbox" id="inp_contaBin1">Conta: <a id="BiDe1"></a></h4>
+
+                <p></p>
+            </div>
+
+
+            <div class="postagem">
+                <!-- <img width="500px" src=""> -->
+                    <!--INICIO DE BINÁRIO PARA OCTAL-->
+                <p>
+                    </p><h3 class="font_white">Binário para octal</h3>
+                <p></p>
+                <p>
+                    <b class="font_white">
+                        &nbsp;&nbsp;1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;
+                    </b>
+                </p>                    
+                <p>
+                    <input type="checkbox" id="input_checkbox_BinOct16">
+                    <input type="checkbox" id="input_checkbox_BinOct15">
+                    <input type="checkbox" id="input_checkbox_BinOct14">
+                    <input type="checkbox" id="input_checkbox_BinOct13">
+                    <input type="checkbox" id="input_checkbox_BinOct12">
+                    <input type="checkbox" id="input_checkbox_BinOct11">
+                    <input type="checkbox" id="input_checkbox_BinOct10">
+                    <input type="checkbox" id="input_checkbox_BinOct9">
+                    <input type="checkbox" id="input_checkbox_BinOct8">
+                    <input type="checkbox" id="input_checkbox_BinOct7">
+                    <input type="checkbox" id="input_checkbox_BinOct6">
+                    <input type="checkbox" id="input_checkbox_BinOct5">
+                    <input type="checkbox" id="input_checkbox_BinOct4">
+                    <input type="checkbox" id="input_checkbox_BinOct3">
+                    <input type="checkbox" id="input_checkbox_BinOct2">
+                    <input type="checkbox" id="input_checkbox_BinOct1">
+                </p>
+                <button class="font_white" onclick="ContaBinarioOctal()">
+                    Calcular
+                </button>
+                <br>
+                <h4 class="font_white">Resultado: <a id="BiOc">0</a></h4>
+                <h4><input type="checkbox" id="inp_contaBin2">Conta: <a id="BiOc1"></a></h4>
+
+            </div>
+
+            <div class="postagem">
+                <!-- <img width="500px" src=""> -->
+                <!--INICIO DE BINÁRIO PARA HEXADECIMAL-->
+                <p>
+                    </p><h3 class="font_white">Binário para hexadecimal</h3>
+                <p></p>
+                <p>
+                    <b class="font_white">
+                        &nbsp;&nbsp;1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;&nbsp; 1&nbsp;
+                    </b>
+                </p>                    
+                <p>
+                    <input type="checkbox" id="input_checkbox_BinHex16">
+                    <input type="checkbox" id="input_checkbox_BinHex15">
+                    <input type="checkbox" id="input_checkbox_BinHex14">
+                    <input type="checkbox" id="input_checkbox_BinHex13">
+                    <input type="checkbox" id="input_checkbox_BinHex12">
+                    <input type="checkbox" id="input_checkbox_BinHex11">
+                    <input type="checkbox" id="input_checkbox_BinHex10">
+                    <input type="checkbox" id="input_checkbox_BinHex9">
+                    <input type="checkbox" id="input_checkbox_BinHex8">
+                    <input type="checkbox" id="input_checkbox_BinHex7">
+                    <input type="checkbox" id="input_checkbox_BinHex6">
+                    <input type="checkbox" id="input_checkbox_BinHex5">
+                    <input type="checkbox" id="input_checkbox_BinHex4">
+                    <input type="checkbox" id="input_checkbox_BinHex3">
+                    <input type="checkbox" id="input_checkbox_BinHex2">
+                    <input type="checkbox" id="input_checkbox_BinHex1">
+                </p>
+                <button style="color: #ffffff;" onclick="ContaBinarioHexaDecimal()">
+                    Calcular
+                </button>
+                <br>
+                <h4 class="font_white">Resultado: <a id="BiHe">0</a></h4>
+                <h4 class="font_white"><input type="checkbox" id="inp_contaBin3">Conta: <a id="BiHe1"></a></h4>
+            </div>
+        </div>
+        <div id="area-lateral">
+            <div class="conteudo-lateral">
+                <h3 class="font_white">Contato</h3>
+                <div class="postagem-lateral">
+                    <p class="font_white"><b>Contato dos Desenvolvedores:</b> 1SISA 2023<br><br>- Nathan - nathan.oliveira@sptech.school<br><br>- Alexandre - alexandre.murata@sptech.school<br><br>- Kaori - michelly.katayama@sptech.school</p>
+                </div>
+
+            </div>
+            <div class="conteudo-lateral">
+                <h3 class="font_white">Mais Informações</h3>
+               <h4 class="font_white">Para mais informações entre em contato com professora Marise de ArqComp</h4>
+            </div>
+            <!-- <div class="conteudo-lateral">
+                <h3>Dificuldades na materia?</h3>
+               <h4>Se você esta usando esse site e esta com dificuldades meu amigo... comece a orar...</h4>
+            </div> -->
+             <div class="conteudo-lateral">
+                <h3>Exercícios</h3>
+                <div class="postagem-lateral">
+                    <hr>
+                    <button class="font_white" onclick="getRandomInt()">
+                        Começar
+                    </button>
+                    <p class="font_white">
+                        Exercício - Binário para Decimal
+                    </p>
+                    <p class="font_white" id="ExUm"></p>
+                    <p class="font_white" id="ExDois"></p>
+                    <p class="font_white" id="ExTres"></p>
+                    <p class="font_white" id="ExQuatro"></p>
+                    
+                    <input type="number" placeholder="Binário para Decimal" id="input_ex1">
+                    <button class="font_white" onclick="Verificar_BinDec()">
+                        Ver Resposta
+                    </button>
+                    <p class="font_white" id="mensagem_ExUm"></p>
+                    <p class="font_white" id="mensagem_ExDois"></p>
+                    <p class="font_white" id="mensagem_ExTres"></p>
+                    <p class="font_white" id="mensagem_ExQuatro"></p>
+                    <input type="number" id="mensagem_ExUm1" class="input_vazio">
+                    <input type="number" id="mensagem_ExUm2" class="input_vazio">
+                    <input type="number" id="mensagem_ExUm3" class="input_vazio">
+                    <input type="number" id="mensagem_ExUm4" class="input_vazio">
+                </div>
+            </div>
+        </div>
+        <div class="font_white" id="rodape">
+            <b>JavaScript</b> Por Alexandre<br><b>HTML</b> Por Nathan<br><b>CSS</b> Por Kaori<br>
+        </div><br>
+        <a style="font-size:x-small; color: gray;" href="https://www.flaticon.com/br/icones-gratis/codigo" title="código ícones">Código ícones criados por Eucalyp - Flaticon</a>
+    </div>
+
+
+
+</body></html>

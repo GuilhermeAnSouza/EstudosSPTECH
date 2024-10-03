@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detecção de Colisão</title>
+</head>
+<body>
+    Retângulo 1 <br>
+    Vértice x0: <input id="inputX01" type="text">
+    Vértice y0: <input id="inputY01" type="text">
+    Vértice x1: <input id="inputX11" type="text">
+    Vértice y1: <input id="inputY11" type="text"> <br>
+    
+    Retângulo 2 <br>
+    Vértice x0: <input id="inputX02" type="text">
+    Vértice y0: <input id="inputY02" type="text">
+    Vértice x1: <input id="inputX12" type="text">
+    Vértice y1: <input id="inputY12" type="text">
+
+    <br><br>
+    <button onclick="verificar()">Verificar colisão</button>
+    <div id="div_mensagem"></div>
+
+
+<script>
+    
+    function verificar() {
+        var x01 = Number(inputX01.value)
+        var y01 = Number(inputY01.value)
+        var x11 = Number(inputX11.value)
+        var y11 = Number(inputY11.value)
+        var x02 = Number(inputX02.value)
+        var y02 = Number(inputY02.value)
+        var x12 = Number(inputX12.value)
+        var y12 = Number(inputY12.value)
+
+        if ( x11 < x02) 
+            div_mensagem.innerHTML =  "Não colidem"
+            else if (x01 > x12) 
+                div_mensagem.innerHTML = "Não colidem"
+            else if (y11 < y02) 
+                div_mensagem.innerHTML = "Não colidem"
+            else if (y01 > y12) 
+                div_mensagem.innerHTML = "Não colidem"
+        else 
+            div_mensagem.innerHTML = "Colidem"
+
+    }
+
+</script>
+
+</body>
+</html>
