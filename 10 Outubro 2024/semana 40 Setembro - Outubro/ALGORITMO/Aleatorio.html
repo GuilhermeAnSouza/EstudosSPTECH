@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url('https://miro.medium.com/v2/da:true/resize:fit:1160/1*t_G1kZwKv0p2arQCgYG7IQ.gif');
+            background-size: cover;
+            color: wheat;
+        }
+        
+
+
+
+
+
+    </style>
+</head>
+<body>
+    MIN: <input type="text" id="inputMin">
+    MAX: <input type="text" id="inputMax">
+
+    <button onclick="verificar()">gerar aleatorio</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function verificar(){
+        var aleatorio = Math.random();
+        var min = Number(inputMin.value)
+        var max = Number(inputMax.value)
+        var inter = max-min
+        var cincoQuinze = aleatorio * 10 + 5
+
+        var mensagem = `aleatório gerado: ${parseInt(aleatorio)}<br> Aleatório cinco-quinze ${parseInt(cincoQuinze)}<br>
+        `
+        mensagem += `Aleatório com Min e Max ${parseInt(aleatorio*inter+min)}`
+
+        div_mensagem.innerHTML = mensagem
+
+    }
+
+
+</script>

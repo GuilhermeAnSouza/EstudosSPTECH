@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url('https://wallpapers.com/images/featured/4k-escuro-g2zbf9yio7mrn9uw.jpg');
+            background-size: cover;
+            color: wheat;
+        }
+        
+
+
+
+
+
+    </style>
+</head>
+<body>
+    Digite um texto:
+
+    <input oninput='analisar()' type="text" id="inputTexto">
+    <div id="div_mensagem"></div>
+
+    <img src="" alt="">
+</body>
+</html>
+
+<script>
+    function analisar(){
+        var texto = inputTexto.value
+        console.log(texto)
+        var mensagem = ''
+
+        var tamanhoTexto = texto.length
+
+        mensagem += `Quantidade de caracteres: ${tamanhoTexto}<BR>`
+
+        if (tamanhoTexto >=8){
+            mensagem += 'O texto possui AO MENOS 8 caracteres <br>'
+        }else {
+            mensagem += 'o texto NÃO POSSUI 8 caracteres <br>'
+        }
+
+        var terminaCom = texto.endsWith('.com') 
+        var terminaBr = texto.endsWith('.br')
+
+        if(terminaCom){
+            mensagem += 'Termina com ".com"<br>'
+        }else if (terminaBr){
+            mensagem += 'Termina com ".br"<br>'
+        }else {
+            mensagem += 'Não termina com ".com" nem ".br"<br>'
+        }
+
+        var comecaAbc = texto.startsWith('abc')
+        if (comecaAbc){
+            mensagem += 'começa com "abc!<br>'
+        }else {
+            mensagem += 'o texto não começa com "abc" <br>'
+        }
+
+        mensagem+= `Texto original: ${texto}<br>`
+        
+        var textoMinusculo = texto.toLowerCase();
+        mensagem += `TEXTO minusculo: ${textoMinusculo}<br>`
+
+        var textoMaiusculo = texto.toUpperCase()
+        mensagem += `texto maiúsculo: ${textoMaiusculo}<br>`
+
+        if (texto != textoMaiusculo){
+            mensagem += `Possui caractere minúsculo<br>`
+        }else {
+            mensagem += `Não possui caractere minúsculo.<br>` 
+        }
+
+        if (texto != textoMinusculo){
+            mensagem += `Possui caractere maiusculo<br>`
+        }else {
+            mensagem += `Não possui caractere maiusculo.<br>` 
+        }
+
+        var primeiroCarac = texto[0]
+        var terceiroCarac = texto[2]
+        var ultimoCarac = texto[tamanhoTexto-1]
+
+        mensagem +=`
+        Primeiro caractere: ${primeiroCarac}<br>
+        Terceiro caractere: ${terceiroCarac}<br>
+        último caractere: ${ultimoCarac}<br>
+        `
+
+        var indiceCom = texto.indexOf('.com')
+        var indiceArroba = texto.indexOf('@')
+        mensagem += `Indice de @> ${indiceArroba}<br>`
+
+        if (indiceArroba >= 0){
+            mensagem += 'Contém @ no texto original<br>'
+        }else {
+            mensagem += 'não ocntem @<br>'
+        }
+
+        if (indiceArroba < indiceCom){
+            mensagem += `Válido, o @ está antes do .com<br>`
+        } else {
+            mensagem += `Inválido, o .com está antes do @<br>`
+        }
+
+        var possuiArroba = texto.includes('@')
+        mensagem += `texto possui @? ${possuiArroba}<br>`
+
+        var textoSemEspaco = texto.replaceAll(" ","")
+        mensagem+= `Texto sem espaços ${textoSemEspaco}<br>`
+
+        var textoArrobaPrimeiroA = texto.replace("A",'@')
+        mensagem += `Texto com @ no primeiro A: ${textoArrobaPrimeiroA}<br>`
+
+        var priMaiusculo = textoMinusculo.replace(textoMinusculo[0], textoMinusculo[0].toUpperCase());
+        mensagem += `Texto com a primeira letra maiúscula: ${priMaiusculo}`;
+
+            div_mensagem.innerHTML = mensagem
+
+
+    }
+
+
+</script>
