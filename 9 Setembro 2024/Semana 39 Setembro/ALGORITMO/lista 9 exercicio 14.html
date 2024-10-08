@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Min: <input type="text" id="inputMin">
+    Max: <input type="text" id="inputMax">
+    <button onclick="verificar()">Curto 3 e 5!</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function verificar(){
+        var mensagem = ""
+        var min = Number(inputMin.value)
+        var max = Number(inputMax.value)
+
+        for(var contador= min; contador <= max; contador++ ){
+
+            if (contador % 3 == 0 & contador % 5 == 0 ){
+                mensagem += 'É TRI!É PENTA!<br>'
+            }else if(contador % 3 == 0){
+                mensagem += 'É TRI!<br>'
+            } else if (contador % 5 == 0){
+                mensagem += 'É PENTA!<br>'
+            }else 
+                mensagem += `${contador}<br>`
+        }
+            div_mensagem.innerHTML = mensagem
+
+    }
+
+
+
+
+
+
+</script>

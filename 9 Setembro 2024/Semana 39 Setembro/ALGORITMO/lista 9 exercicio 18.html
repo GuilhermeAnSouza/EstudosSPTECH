@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Quantas coca-cola você tomou na vida: <input type="text" id="inputCoca">
+    <button onclick="verificar()">Ver a quantidade</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function verificar(){
+        var mensagem = ''
+        var coca = Number(inputCoca.value)
+
+        for(var contador = 1; contador <= coca; contador++)
+        mensagem += `<img src="https://thepetitpizzaria.com.br/saofrancisco/wp-content/uploads/2021/03/Pet-2-Litros-Coca-Cola-PNG.png">`
+        
+        div_mensagem.innerHTML = mensagem
+    }
+
+
+
+</script>
