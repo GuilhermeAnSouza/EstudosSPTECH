@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="verificar()">Sortear time</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function verificar(){
+        var mensagem = ''
+        var random = Math.random()
+        
+        if(random < 0.25){
+            mensagem = `<img width="150px" src="https://lncimg.lance.com.br/uploads/2024/05/Corinthians-1-1-aspect-ratio-50-50.png"   >`
+        }else if(random < 0.50){
+            mensagem = `<img  width="150px" src="https://yt3.googleusercontent.com/ytc/AIdro_moaN2LX25tMTwUl--DGVhFAh7lK9gzdf16NNPYYYOZcOg=s900-c-k-c0x00ffffff-no-rj">`
+        }else if(random < 0.75){
+            mensagem = `<img width="150px" src="https://image-service.onefootball.com/transform?w=128&dpr=2&image=https://images.onefootball.com/icons/teams/164/1677.png">`
+        }else
+            mensagem = `<img width="150px" src="https://lncimg.lance.com.br/uploads/2024/04/Santos-1-1.png">`
+        
+
+        div_mensagem.innerHTML = mensagem
+
+    }
+
+
+</script>

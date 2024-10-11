@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="div_1">
+    Nome usuário: <input type="text" id="inputUser">
+    Senha: <input type="text" id="inputSenha">
+    <button onclick="verificar()">Cadastrar</button>
+    </div>
+
+    <div id="div_2">
+    Nome usuário: <input type="text" id="inputLogin">
+    Senha: <input type="text" id="inputSenhaLog">
+    Código do grupo: <input type="text" id="inputGrupo">
+    <button onclick="login()">Acessar Clube</button>
+    </div>
+
+    <div id="div_3">
+        
+
+    </div>
+
+    <div id="div_mensagem"></div>
+    <div id="div_mensagem1"></div>
+</body>
+</html>
+
+<script>
+
+        div_1.style.display = 'block';
+        div_2.style.display = 'none';  
+
+        var userCadastrado = ''
+        var senhaCadastrado = ''
+        var codigoCadastrado = ''
+        
+    function verificar(){
+
+        var mensagem = ''
+        var grupo = ''
+        var codigo = ''
+        var random = Math.random();
+        var user = inputUser.value
+        var senha = inputSenha.value
+        var senhaTamanho = senha.length
+        var senhaMinuscula = senha.toLowerCase()
+        var senhaMaiuscula = senha.toUpperCase()
+        var caracEspecUser1 = user.indexOf(' ')
+        var caracEspecUser2 = user.indexOf('!')
+        var caracEspecSenha2 = senha.indexOf('!')
+        var caracEspecUser3 = user.indexOf('@')
+        var caracEspecSenha3 = senha.indexOf('@')
+        var caracEspecUser4 = user.indexOf('#')
+        var caracEspecSenha4 = senha.indexOf('#')
+        var caracEspecUser5 = user.indexOf('$')
+        var caracEspecSenha5 = senha.indexOf('$')
+        var caracEspecUser6 = user.indexOf('%')
+        var caracEspecSenha6 = senha.indexOf('%')
+        var caracEspecUser7 = user.indexOf('&')
+        var caracEspecSenha7 = senha.indexOf('&')
+        var numSenha1 = senha.indexOf('1')
+        var numSenha2 = senha.indexOf('2')
+        var numSenha3 = senha.indexOf('3')
+        var numSenha4 = senha.indexOf('4')
+        var numSenha5 = senha.indexOf('5')
+        var numSenha6 = senha.indexOf('6')
+        var numSenha7 = senha.indexOf('7')
+        var numSenha8 = senha.indexOf('8')
+        var numSenha9 = senha.indexOf('9')
+        var numSenha0 = senha.indexOf('0')
+
+
+        if (caracEspecUser1 >= 0 || caracEspecUser2 >= 0 || caracEspecUser3 >= 0 || caracEspecUser4 >= 0 || 
+        caracEspecUser5 >= 0 || caracEspecUser6 >= 0){
+            
+            mensagem = 'Nome de usuário inválido. Verifique os caracteres utilizados'
+
+        }else if ( (caracEspecSenha2 >= 0 || caracEspecSenha3 >= 0 || caracEspecSenha4 >= 0 || 
+            caracEspecSenha5 >= 0 || caracEspecSenha6 >= 0) && (numSenha0 >= 0 || numSenha1 >= 0 || numSenha2 >= 0 || numSenha3 >= 0 || numSenha4 >= 0 || numSenha5 >= 0
+             || numSenha6 >= 0 || numSenha8 >= 0 || numSenha9 >= 0 || numSenha7 >= 0)
+              && senhaTamanho >= 8 && senhaMinuscula != senha && senhaMaiuscula != senha ){
+ 
+                if(random < 0.25){
+                    grupo = `Grupo Ouro`
+                    codigo = 1
+                }else if(random < 0.50){
+                    grupo = `Grupo Prata`
+                    codigo = 2
+                }else if(random < 0.75){
+                    grupo = `Grupo Bronze`
+                    codigo = 3
+                }else{
+                    grupo = `Grupo Cobre`
+                    codigo = 4
+                    }
+
+            mensagem = `Cadastro concluído! <br>
+                        -----------------------<br>
+                        Usuário: ${user}<br>
+                        Senha: ${senha}<br>
+                        Código do grupo: ${codigo}<br>
+                        descrição: ${grupo}
+                        `
+
+            div_1.style.display = 'none';
+            div_2.style.display = 'block'; 
+
+            } else {
+                mensagem = 'A senha deve conter no mínimo 8 caracteres, com ao menos um caractere especial, uma letra maiúscula, uma letra minúscula e um número' 
+            }
+
+
+        userCadastrado = user
+        senhaCadastrado = senha
+        codigoCadastrado = codigo
+        div_mensagem.innerHTML = mensagem
+
+}
+
+    function login(){
+
+        var mensagem = ''
+        var random = Math.random();
+        var d10 = parseInt(random * 10 + 1) 
+        var de10a100 = Number(random * 100 + 10).toFixed(2) 
+        var total = d10*de10a100
+        var login = inputLogin.value
+        var senhaLog = inputSenhaLog.value
+        var codigo = inputGrupo.value
+
+        if (login == userCadastrado && senhaLog == senhaCadastrado && codigo == codigoCadastrado){      
+
+            div_1.style.display = 'none';
+            div_2.style.display = 'none'; 
+
+            if (codigo == 1){
+                var desc = '20%'
+                var totalDesc = total * 0.80
+            }else if (codigo == 2){
+                var desc = '15%'
+                var totalDesc = total * 0.85
+            }else if (codigo == 3){
+                var desc = '10%'
+                var totalDesc = total * 0.90
+            }else if (codigo == 4){
+                var desc = "5%"
+                var totalDesc = total * 0.95
+            }
+
+            mensagem = `
+                        Extrato da compra<br>           
+                        ----------------------------<br>
+                        Quantidade de produto: ${d10}<br>
+                        Preço médio por produto: ${de10a100}<br>
+                        valor original: ${total}<br>
+                        desconto: ${desc} (${(totalDesc-total).toFixed(2)}) <br>
+                        valor final: ${totalDesc.toFixed(2)}
+                        `
+
+        }else {
+            mensagem = 'Login Inválido! Informações não correspondem.'
+        }
+            div_mensagem.innerHTML = mensagem
+    }
+</script>
+
+
