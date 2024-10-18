@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistir Episódios</title>
+</head>
+
+<body>
+
+    <h1>Assistir OnePiece</h1>
+
+    Número do Episódio (1-1100):
+    <input type="number" id="inEp"><br><br>
+
+    Tempo disponível (número):
+    <input type="number" id="inTempo"><br><br>
+
+    Unidade de tempo:
+    <select id="selectMedida">
+        <option>Selecione uma opção</option>
+        <option>Horas</option>
+        <option>Minutos</option>
+    </select><br><br>
+
+    Pular Abertura?
+    <select id="selectAbertura">
+        <option>Selecione uma opção</option>
+        <option>Não</option>
+        <option>Sim</option>
+    </select><br><br>
+
+    Pular Encerramento?
+    <select id="selectEncerramento">
+        <option>Selecione uma opção</option>
+        <option>Não</option>
+        <option>Sim</option>
+    </select><br><br>
+
+    <button onclick="assistir()">Assistir Episódios</button>
+
+    <div id="divMen"></div>
+
+</body>
+
+</html>
+<script>
+
+    function assistir() {
+        var episodioInicial = Number(inEp.value);
+        var tempo = Number(inTempo.value);
+        var medida = selectMedida.value;
+        var pularAbertura = selectAbertura.value;
+        var pularEncerramento = selectEncerramento.value;
+        var possiveis = 0;
+        var tempoEpisodio = 0;
+
+        var mensagem = ``;
+        var validacao = true;
+
+
+        if (episodioInicial < 1 || episodioInicial > 1100) {
+            alert("O número do episódio é inválido");
+            validacao = false;
+        } else if (medida == 'Selecione uma opção' || pularAbertura == 'Selecione uma opção' || pularEncerramento == 'Selecione uma opção') {
+            alert("Selecione uma opção válida.");
+            validacao = false;
+        }
+        if (pularAbertura == 'Sim' && pularEncerramento == 'Sim') {
+            tempoEpisodio = 20;
+        } else if (pularAbertura == 'Sim' || pularEncerramento == 'Sim') {
+            tempoEpisodio = 22;
+        } else {
+            tempoEpisodio = 24;
+        }
+        if (medida == 'Horas') {
+            tempo = tempo * 60;
+            possiveis = tempo / tempoEpisodio;
+        } else {
+            tempo = tempo
+            possiveis = tempo / tempoEpisodio;
+        }
+
+        // loop pra cada episódio
+        if (validacao) {
+            for (var cont = episodioInicial; cont <= episodioInicial + possiveis; cont++) {
+                if (tempo > 0) {
+                    mensagem += `<br>Episódio ${cont} <br>`;
+                    // loop pro minuto
+                    for (var minuto = 1; minuto <= tempoEpisodio; minuto++) {
+                        tempo -= 1;
+                        if (tempo > 0 || tempo == 0) {
+                            if (minuto <= 2 && pularAbertura == 'Não') {
+                                mensagem += `Minuto ${minuto}: Abertura do Episódio<br>`;
+
+                            } else if (minuto <= 2 && pularAbertura == 'Sim') {
+                                mensagem += `Minuto ${minuto}: Assistindo o Episódio<br>`;
+
+                            } else if (minuto > 2 && minuto <= 22) {
+                                mensagem += `Minuto: ${minuto}: Assistindo o Episódio<br>`;
+
+                            } else if (minuto > 22 && pularEncerramento == 'Não') {
+                                mensagem += `Minuto ${minuto}: Encerramento do Episódio<br>`;
+                            }
+
+                        }
+
+                    }
+                }
+
+            }
+            mensagem += `<br>Fim dos episódios!<br> 
+                            Foram assistidos ${possiveis} episódios! :)`;
+
+            divMen.innerHTML = mensagem;
+
+        }
+    }
+</script>

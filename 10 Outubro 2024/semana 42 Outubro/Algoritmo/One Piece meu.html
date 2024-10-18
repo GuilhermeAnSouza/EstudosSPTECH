@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistir Episódio</title>
+</head>
+
+<body>
+    Episódio que deseja começar assistindo: <input type="number" id="inputEp">
+    Quantidade de tempo disponível: <input type="number" id="inputTempo">
+    Unidade de tempo em:
+    <select id="selectTempo">
+        <option>Minutos</option>
+        <option>Horas</option>
+    </select>
+
+    Pular abertura?
+    <select id="selectAbertura">
+        <option>Sim</option>
+        <option>Não</option>
+    </select>
+
+    Pular ending?
+    <select id="selectEnding">
+        <option>Sim</option>
+        <option>Não</option>
+    </select>
+
+    <button onclick="verificar()">Assistir episódio</button>
+    <div id="div_mensagem"></div>
+</body>
+
+</html>
+
+<script>
+    function verificar() {
+        var episodio = Number(inputEp.value)
+        var tempoDisponivel = Number(inputTempo.value)
+        var unidadeTempo = selectTempo.value
+        var abertura = selectAbertura.value
+        var ending = selectEnding.value
+        var mensagem = ''
+
+
+        if (unidadeTempo == 'Horas') {
+            tempoDisponivel *= 60
+        }
+
+
+
+        if (episodio > 1100 || episodio < 1) {
+            alert('O número do episódio é inválido')
+
+        } else if (abertura == 'Sim' && ending == 'Sim') {
+            var duracaoEpisodio = 20
+            var episodiosPossiveis = parseInt(tempoDisponivel / duracaoEpisodio)
+            var tempoRestante = tempoDisponivel % duracaoEpisodio
+
+            for (var contador = 0; contador < episodiosPossiveis; contador++) {
+                mensagem += `<br>Episódio: ${episodio + contador}:<br>`
+                for (var minuto = 1; minuto <= duracaoEpisodio; minuto++) {
+                    mensagem += `Minuto ${minuto}: Assistindo o Episódio<br>`
+                }
+            }
+
+            if (tempoRestante > 0) {
+                mensagem += `<br>Episódio: ${episodio + episodiosPossiveis}:<br>`
+                for (var minuto = 1; minuto <= tempoRestante; minuto++) {
+                    mensagem += `Minuto ${minuto}: Assistindo o Episódio<br>`
+                }
+            }
+
+        } else if (abertura == 'Não' && ending == 'Sim') {
+            var duracaoEpisodio = 22
+            var episodiosPossiveis = parseInt(tempoDisponivel / duracaoEpisodio)
+            var tempoRestante = tempoDisponivel % duracaoEpisodio
+
+            for (var contador = 0; contador < episodiosPossiveis; contador++) {
+                mensagem += `<br>Episódio: ${episodio + contador}:<br>
+                            Minuto 1: Assistindo Abertura<br>
+                            Minuto 2: Assistindo Abertura<br>`
+                for (var minuto = 3; minuto <= duracaoEpisodio; minuto++) {
+                    mensagem += `Minuto ${minuto}: Assistindo o Episódio<br>`
+                }
+            }
+
+            if (tempoRestante > 2) {
+                mensagem += `<br>Episódio ${episodio + contador}:<br>
+                            Minuto 1: Assistindo Abertura<br>
+                            Minuto 2: Assistindo Abertura<br>`
+                for (var minuto = 3; minuto <= tempoRestante; minuto++) {
+                    mensagem += `Minuto ${minuto}: Assistindo o Episódio<br>`
+                }
+            } else if (tempoRestante > 1) {
+                mensagem += `<br>Episódio ${episodio + contador}:<br>
+                            Minuto 1: Assistindo Abertura<br>
+                            Minuto 2: Assistindo Abertura<br>`
+            } else if (tempoRestante > 0) {
+                mensagem += `<br>Episódio ${episodio + contador}:<br>
+                            Minuto 1: Assistindo Abertura<br>`
+            }
+
+
+        } else if (abertura == 'Não' && ending == 'Não') {
+            var duracaoEpisodio = 24
+            var episodiosPossiveis = parseInt(tempoDisponivel / duracaoEpisodio)
+            var tempoRestante = tempoDisponivel % duracaoEpisodio
+
+            for (var contador = 0; contador < episodiosPossiveis; contador++) {
+                mensagem += `<br>Episódio ${episodio + contador}:<br>
+                            Minuto 1: Assistindo Abertura<br>
+                            Minuto 2: Assistindo Abertura<br>`
+                for (var minuto = 3; minuto <= duracaoEpisodio - 2; minuto++) {
+                    mensagem += `Minuto ${minuto}: Assistindo Episódio<br>`
+                }
+                mensagem += `Minuto 23: Assistindo ending<br>
+                             Minuto 24: Assistindo ending<br>`
+            }
+
+            if (tempoRestante > 2) {
+                mensagem += `<br>Episódio ${episodio + contador}:<br>
+                            Minuto 1: Assistindo Abertura<br>
+                            Minuto 2: Assistindo Abertura<br>`
+                for (var minuto = 3; minuto <= tempoRestante; minuto++) {
+                    mensagem += `Minuto ${minuto}: Assistindo Episódio<br>`
+                }
+            } else if (tempoRestante > 1) {
+                mensagem += `<br>Episódio ${episodio + contador}:<br>
+                            Minuto 1: Assistindo Abertura<br>
+                            Minuto 2: Assistindo Abertura<br>`
+            } else if (tempoRestante > 0) {
+                mensagem += `<br>Episódio: ${episodio + contador}:<br>
+                            Minuto 1: Assistindo Abertura<br>`
+            }
+
+        } else {
+            var duracaoEpisodio = 22
+            var episodiosPossiveis = parseInt(tempoDisponivel / duracaoEpisodio)
+            var tempoRestante = tempoDisponivel % duracaoEpisodio
+
+            for (var contador = 0; contador < episodiosPossiveis; contador++) {
+                mensagem += `<br>Episódio ${episodio + contador}:<br>`
+                for (var minuto = 1; minuto <= duracaoEpisodio - 2; minuto++) {
+                    mensagem += `Minuto ${minuto}: Assistindo Episódio<br>`
+                }
+                mensagem += `Minuto 21: Assistindo ending<br>
+                             Minuto 22: Assistindo ending<br>`
+
+            }
+
+            if (tempoRestante > 0) {
+                mensagem += `<br>Episódio ${episodio + episodiosPossiveis}:<br>`
+                for (var minuto = 1; minuto <= tempoRestante; minuto++) {
+                    mensagem += `Minuto ${minuto}: Assistindo Episódio<br>`
+                }
+
+            }
+
+        }
+
+        if (episodio >= 1 && episodio <= 1100)
+        mensagem += `<br>Fim dos episódios! <br> Foram assistidos ${tempoDisponivel / duracaoEpisodio}`
+        div_mensagem.innerHTML = mensagem
+    }
+</script>
