@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome: <input type="text" id="inputNome">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="pesquisar()">Pesquisar</button>
+    <button onclick="detalhes()">Detalhes</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    var listaNomes = []
+
+    function cadastrar () {
+        
+        var mensagem = ''
+        var nome = inputNome.value
+        listaNomes.push(`${nome}<br>`)
+
+        mensagem = `${listaNomes}<br>`
+        console.log(listaNomes)
+
+        div_mensagem.innerHTML = mensagem
+    }
+
+    function pesquisar (){
+        var nome = inputNome.value
+
+        var incluso = listaNomes.includes(nome)
+
+        if (incluso){
+            div_mensagem.innerHTML += `O nome ${nome} já está na lista<br>`
+        }else {
+            div_mensagem.innerHTML += `O nome ${nome} não está na lista<br>`
+
+        }
+
+    }
+    function detalhes(){
+        div_mensagem.innerHTML += `
+            Primeira posição: ${listaNomes[0]}, 
+            Terceira posição: ${listaNomes[2]}
+            última posição: ${listaNomes[listaNomes.length-1]}
+        
+        
+        
+        
+        `
+
+
+    }
+
+        
+
+
+    
+
+
+
+</script>
