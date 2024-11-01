@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome: <input type="text" id="inputNome">
+    Sobrenome: <input type="text" id="inputSobrenome">
+
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="exibir()">Exibir</button>
+
+    <div id="div_mensagem" style="display: flex; flex-wrap: nowrap;"></div>
+</body>
+</html>
+
+<script>
+    var listaNome = []
+    var listaSobrenome = []
+    var listaCompleto = []
+
+
+    function cadastrar(){
+        var nome = inputNome.value
+        var sobrenome = inputSobrenome.value
+
+        listaNome.push(`${nome} ${sobrenome}`)
+
+    }
+
+    function exibir(){
+
+        var mensagem = ''
+        
+        for (var contador = 0; contador < lista.length; contador++){
+            lista.push[contador]
+            mensagem += `Contato ${contador+1}°: ${lista[contador]}<br>`
+           
+        }
+
+
+        div_mensagem.innerHTML = mensagem
+
+
+    }
+
+
+
+
+</script>
