@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome aluno: <input type="text" id="inputNome">
+    <button onclick="verificar()">Cadastro</button>
+    <button onclick="exibir()">Mostrar</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    var lista = []  
+    
+
+    function verificar(){
+        var nome = inputNome.value
+        var mensagem = ''
+
+        lista.push(nome)
+        mensagem = `O aluno chamado ${nome} foi cadastrado com sucesso!`
+        div_mensagem.innerHTML = mensagem
+
+    }
+
+
+    function exibir(){
+
+        var mensagem = ''
+
+        for(var contador = lista.length-1; 0<=contador; contador--)
+
+        mensagem += `${lista[contador]}<br>`
+
+        
+        
+        div_mensagem.innerHTML = mensagem
+    }
+
+    
+
+
+</script>

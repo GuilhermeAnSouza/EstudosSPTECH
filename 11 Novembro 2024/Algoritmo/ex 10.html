@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome busaum: <input type="text" id="inputNome">
+    <button onclick="exibir()">Gravar busa1</button>
+    <button onclick="presquidrar()">Pesquisar</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    var lista = []  
+    
+    function exibir(){
+        var nome = inputNome.value
+        var mensagem = ''
+
+        lista.push(nome)
+
+        for(var contador = lista.length-1; 0<=contador; contador--)
+
+        mensagem += `${contador+1}°: ${lista[contador]}<br>`
+
+        
+        
+        div_mensagem.innerHTML = mensagem
+    }
+
+
+
+    function presquidrar(){
+        var nome = inputNome.value
+        var incluso = lista.includes(nome)
+        var pegou = 0
+        var mensagem = ''
+
+        if (incluso){
+            mensagem = ''
+
+            for(var contador = 0; contador<lista.length ; contador++){
+                if(lista[contador] == nome){
+                    pegou++
+                    mensagem += `${contador+1} `
+            }
+        }
+           mensagem = `Você já pegou essa linha ${pegou} vezes, nessa ordem: ${mensagem}.`
+           
+        }else {
+            mensagem = 'Você nunca pegou essa linha'
+        }
+
+        div_mensagem.innerHTML = mensagem
+    }
+
+    
+
+
+</script>

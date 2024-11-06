@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome filhos: <input type="text" id="inputNome">
+    <button onclick="verificar()">Cadastro</button>
+    <button onclick="exibir()">Atualizar familia</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    var lista = []  
+    
+
+    function verificar(){
+        var nome = inputNome.value
+        var mensagem = ''
+
+        if (lista.includes(nome)){
+            alert('Não pode mais de 1 filho com o mesmo nome!')
+        }else{
+
+        lista.push(nome)
+        mensagem = `O aluno filho ${nome} foi cadastrado com sucesso!`
+        div_mensagem.innerHTML = mensagem
+    }
+
+    }
+
+
+    function exibir(){
+
+        var mensagem = ''
+        var filhos = lista.length
+
+        mensagem = `Você tem ${filhos} filhos<br>
+                    Seu custo mensal será aproximadamente R$${filhos*3000} se colocá-los em escola particular ou R$${filhos*1500} se eles estudarem em escola pública`
+        
+        
+        div_mensagem.innerHTML = mensagem
+    }
+
+    
+
+
+</script>
