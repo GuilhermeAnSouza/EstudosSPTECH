@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Filme: <input type="text" id="inputFilme">
+    <button onclick="verificar()">Cadastro filme</button>
+    <button onclick="exibir()">Ver favoritos</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    var lista = []  
+    
+
+    function verificar(){
+        var filme = inputFilme.value
+        var mensagem = ''
+
+        lista.push(filme)
+        mensagem = `total: ${lista.length}`
+        div_mensagem.innerHTML = mensagem
+
+    }
+
+
+    function exibir(){
+
+        var mensagem = ''
+
+        for(var contador = 0; contador<lista.length; contador++){
+
+        mensagem += `${lista[contador]}<br>`
+
+    }
+        mensagem += `total: ${lista.length} <br><br>O filme que mais gosta é ${lista[0]}<br><br> O filme que menos gosta é ${lista[lista.length-1]}`
+        div_mensagem.innerHTML = mensagem
+    }
+
+    
+
+
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Filme: <input type="text" id="inputFilme">
+    <button onclick="verificar()">Cadastro filme</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    var lista = []  
+    
+
+    function verificar(){
+        var filme = inputFilme.value
+        var mensagem = ''
+
+        lista.push(filme)
+
+        for(var contador = 0; contador<lista.length; contador++){
+            if(contador%2==0){
+                mensagem += `<span style="color: blue;">${lista[contador]}</span><br>`
+            }else
+                mensagem += `<span style="color: red;">${lista[contador]}</span><br>`
+
+}
+        div_mensagem.innerHTML = mensagem
+
+    }
+
+    
+
+
+</script>

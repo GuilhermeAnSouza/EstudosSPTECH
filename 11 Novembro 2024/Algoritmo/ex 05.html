@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Filme: <input type="text" id="inputFilme">
+    <button onclick="verificar()">Cadastro filme</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    var lista = []  
+    
+
+    function verificar(){
+        var filme = inputFilme.value
+        var mensagem = ''
+
+        lista.push(filme)
+
+        if(lista.length > 2){
+        mensagem = `Seu filme favorito: ${lista[0]}<br>
+                    Seu 3º filme favorito: ${lista[2]}<br>
+                    total de filmes cadastrados: ${lista.length} `
+        }else{
+            mensagem = `Seu filme favorito: ${lista[0]}<br>
+                    Seu 3º filme favorito: Ainda não existe<br>
+                    total de filmes cadastrados: ${lista.length} `
+        }
+        div_mensagem.innerHTML = mensagem
+
+    }
+
+
+    
+    
+
+
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Viagem: <input type="text" id="inputViagem">
+    <button onclick="verificar()">Adicionar</button>
+    <button onclick="viagem1()">Primeira viagem</button>
+    <button onclick="viagem3()">Terceira viagem</button>
+    <button onclick="viagemUl()">Ultima viagem</button>    
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    var lista = []
+    var mensagem = ''
+
+    function verificar(){
+        var viagem = inputViagem.value
+        lista.push(viagem)
+    }
+
+function viagem1(){
+    if (lista.length>=0){
+        mensagem = `Primeira viagem: ${lista[0]}`
+    }else
+        mensagem = "Ainda não viajou"
+
+        div_mensagem.innerHTML = mensagem
+
+
+}
+function viagem3(){
+    if (lista.length>=2){
+        mensagem = `Terceira viagem: ${lista[2]}`
+    }else
+        mensagem = "Ainda não fez a 3 viagem"
+
+        div_mensagem.innerHTML = mensagem
+
+
+}
+function viagemUl(){
+    if (lista.length>=0){
+        mensagem = `Ultima viagem: ${lista[lista.length-1]}`
+    }else
+        mensagem = "Ainda não viajou"
+
+        div_mensagem.innerHTML = mensagem
+
+
+}
+
+   
+</script>

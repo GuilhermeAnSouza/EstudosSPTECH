@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Projetos: <input type="text" id="inputProjeto">
+    <button onclick="verificar()">Registrar Projeto</button>
+    <button onclick="exibir()">Mostrar Projetos</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+    var lista = []  
+    
+
+    function verificar(){
+        var projeto = inputProjeto.value
+        var mensagem = ''
+        var profissional = 'Sênior'
+
+        lista.push(projeto)
+
+        if(lista.length < 4 ){
+            profissional = 'Junior'
+        }else if (lista.length >= 4 && lista.length <= 12) {
+            profissional = 'Pleno'
+        }
+
+        mensagem = `Você já fez ${lista.length} projetos. Por isso você é um profissional ${profissional}  `
+        div_mensagem.innerHTML = mensagem
+
+    }
+
+
+    function exibir(){
+
+        var mensagem = ''
+
+        for(var contador = lista.length-1; 0<=contador; contador--){
+
+        mensagem += `${lista[contador]}<br>`
+
+    }
+        div_mensagem.innerHTML = mensagem
+    }
+
+    
+
+
+</script>
