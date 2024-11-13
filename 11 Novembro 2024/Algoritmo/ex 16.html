@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produtos</title>
+</head>
+<body>
+    Nome do produto: <input type="text" id="inputProduto">
+    Preço de compra: <input type="number" id="inputPreco">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="relatorio()">Relatório de estoque</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    var listaProduto = []
+    var listaPreco = []
+
+    function cadastrar() {
+        var produto = document.getElementById('inputProduto').value
+        var preco = Number(document.getElementById('inputPreco').value)
+        
+        listaProduto.push(produto)
+        listaPreco.push(preco)
+    }
+
+    function relatorio() {
+        var mensagem = ""
+        var totalCompra = 0
+        var totalVenda = 0
+        var produtoMaisCaro = listaProduto[0]
+        var produtoMaisBarato = listaProduto[0]
+        var precoMaisCaro = listaPreco[0]
+        var precoMaisBarato = listaPreco[0]
+        
+        mensagem = `Total de produtos: ${Number(listaProduto.length) + 1}<br>`
+
+        for (var index = 0; index < listaProduto.length; index++) {
+            var precoVenda = listaPreco[index] * 1.25;
+            mensagem += `Produto ${index + 1}: ${listaProduto[index]}<br> 
+                         Preço de compra: ${listaPreco[index]} | Preço de venda: ${precoVenda.toFixed(2)}<br>`
+            
+            totalCompra += listaPreco[index]
+            totalVenda += precoVenda
+
+            if (listaPreco[index] > precoMaisCaro) {
+                precoMaisCaro = listaPreco[index]
+                produtoMaisCaro = listaProduto[index]
+            }
+
+            if (listaPreco[index] < precoMaisBarato) {
+                precoMaisBarato = listaPreco[index]
+                produtoMaisBarato = listaProduto[index]
+            }
+        }
+
+        mensagem += `<br>Produto mais caro: ${produtoMaisCaro} (R$ ${precoMaisCaro})<br>`
+        mensagem += `Produto mais barato: ${produtoMaisBarato} (R$ ${precoMaisBarato})<br>`
+        mensagem += `Soma dos preços de compra: R$ ${totalCompra.toFixed(2)}<br>`
+        mensagem += `Média do preço de venda: R$ ${(totalVenda / listaProduto.length).toFixed(2)}<br>`
+
+        div_mensagem.innerHTML = mensagem
+    }
+</script>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    Nome do Filme: <input type="text" id="inputFilme">
+    <button onclick="cadastrarFilme()">Cadastrar</button>
+    <p id="contador"></p>
+    
+    <button onclick="listarFilmes()">Listar Filmes</button>
+
+    De: <input type="number" id="inputDe">
+    Até: <input type="number" id="inputAte">
+    <button onclick="filtrarFilmes()">Filtrar Filmes</button>
+
+    <div id="div_mensagem"></div>
+
+    <script>
+        var listaFilmes = []
+
+        function cadastrarFilme() {
+            var filme = inputFilme.value
+            var contador = 0
+            var mensagem = ''
+
+            listaFilmes.push(filme)    
+
+            mensagem.innerHTML = `Você já assistiu ${listaFilmes.length} filmes`
+        }
+
+        function listarFilmes() {
+            var mensagem = "Filmes Cadastrados:<br>"
+            if (listaFilmes.length ==0) {
+                mensagem += "Nenhum filme cadastrado."
+            } else {
+                for (var i = listaFilmes.length - 1; i >= 0; i--) {
+                    mensagem += `${i + 1}. ${listaFilmes[i]}<br>`
+                }
+            }
+            
+            div_mensagem.innerHTML = mensagem
+        }
+
+        function filtrarFilmes() {
+            var de = Number(inputDe.value)
+            var ate = Number(inputAte.value)
+            var mensagem = "Filmes no intervalo:<br>"
+
+            if (de >= 1 && ate >= 1 && de <= ate && ate <= listaFilmes.length) {
+                for (var i = ate - 1; i >= de - 1; i--) {
+                    mensagem += `${i + 1}. ${listaFilmes[i]}<br>`
+                }
+            } else {
+                mensagem = "Intervalo inválido ou maior que o número de filmes cadastrados."
+            }
+
+            
+            div_mensagem.innerHTML = mensagem
+        }
+    </script>
+</body>
+</html>

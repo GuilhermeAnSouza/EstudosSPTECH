@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produtos</title>
+</head>
+<body>
+    Nome da compra: <input type="text" id="inputCompra"><br>
+    Quantidade produto compra: <input type="number" id="inputQtdCompra"><br>
+    Nome da venda: <input type="text" id="inputVenda"><br>
+    Quantidade produto venda: <input type="number" id="inputQtdVenda"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="relatorio()">Relatório de estoque</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    var listaCompra = {}
+    var listaQtdCompra = {}
+    var listaVenda = {}
+    var listaQtdVenda = {}
+
+    function cadastrar() {
+        var nomeCompra = inputCompra.value
+        var qtdCompra = Number(inputQtdCompra.value)
+        var nomeVenda = inputVenda.value
+        var qtdVenda = Number(inputQtdVenda.value)
+
+        listaCompra.push(nomeCompra)
+        listaQtdCompra.push(qtdCompra)
+
+        if (listaCompra.include(nomeVenda) && listaQtdcompra<listaQtdVenda){
+        listaVenda.push(nomeVenda)
+        listaQtdVenda.push(qtdVenda)
+    }
+    }
+</script>

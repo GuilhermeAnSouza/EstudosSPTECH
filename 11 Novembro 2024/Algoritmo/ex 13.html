@@ -57,14 +57,19 @@
     function exibir(){
         var jogo = inputJogo.value
         var mensagem = ''
-        var Vitoria = 
+        var resultado = 'Perdeu'
 
+        if (lista[jogo-1]!=undefined){
 
-        if (lista[jogo-1]==3){
-
+            if (lista[jogo-1]==3){
+            resultado = 'Ganhou' 
+            }else if (lista[jogo-1]==1) {
+            resultado = 'Empatou'
         }
-
-        mensagem += `No ${jogo}º jogo, o time `
+            mensagem += `No ${jogo}º jogo, o time ${resultado} `
+        }else{
+        mensagem += `Não foi cadastrado um ${jogo}º jogo  `
+    }
 
         div_mensagem.innerHTML = mensagem
     }

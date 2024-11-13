@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    Nome do Produto: <input type="text" id="inputProduto">
+    Preço do Produto: <input type="number" id="inputPreco">
+    <button onclick="cadastrarProduto()">Cadastrar</button>
+    
+    <button onclick="atualizarEstoque()">Atualizar Estoque</button>
+
+    <label for="filtro">Filtro de Preço:</label>
+    <select id="filtro">
+        <option value="acima">Preços acima de</option>
+        <option value="abaixo">Preços abaixo de</option>
+    </select>
+    Valor: <input type="number" id="inputValor">
+    <button onclick="filtrarProdutos()">Filtrar Produtos</button>
+
+    <div id="div_mensagem"></div>
+
+    <script>
+        var listaProdutos = []
+        var listaPrecos = []
+
+        function cadastrarProduto() {
+            var produto = inputProduto.value
+            var preco = Number(inputPreco.value)
+            var mensagem = ""
+
+            if (preco > 0 && produto.length >= 3) {
+                listaProdutos.push(produto)
+                listaPrecos.push(preco)
+                mensagem = "Produto cadastrado com sucesso!"
+            } else {
+                mensagem = "Nome do produto deve ter ao menos 3 letras e o preço deve ser positivo."
+            }
+
+            mensagem.innerText = mensagem
+        }
+
+        function atualizarEstoque() {
+            var total = 0
+            var mensagem = `Você tem ${listaProdutos.length} produtos cadastrados em estoque:<br>`
+
+            for (var i = 0; i < listaProdutos.length; i++) {
+                mensagem += `${i + 1}. ${listaProdutos[i]} - R$${listaPrecos[i].toFixed(2)}<br>`
+                total += listaPrecos[i]
+            }
+
+            mensagem += `<br>Seu estoque vale R$${total.toFixed(2)}`
+            div_mensagem.innerHTML = mensagem
+        }
+
+        function filtrarProdutos() {
+            var valor = Number(inputValor.value)
+            var tipoFiltro = filtro.value
+            var mensagem = "Produtos filtrados:<br>"
+
+            for (var i = 0; i < listaProdutos.length; i++) {
+                if ((tipoFiltro == "acima" && listaPrecos[i] > valor) ||
+                    (tipoFiltro == "abaixo" && listaPrecos[i] < valor)) {
+                    mensagem += `${i + 1}. ${listaProdutos[i]} - R$${listaPrecos[i].toFixed(2)}<br>`
+                }
+            }
+
+            if (mensagem == "Produtos filtrados:<br>") {
+                mensagem += "Nenhum produto encontrado com esse filtro."
+            }
+
+            div_mensagem.innerHTML = mensagem
+        }
+    </script>
+</body>
+</html>
