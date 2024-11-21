@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>Auto-posto Anil Osag</h2>
+   
+    Nome do Produto: <input type="text" id="input_nome"> <br>
+    Quantidade: <input type="text" id="input_quantidade"> <br>
+
+    <button onclick="comprar()">Registrar Entrada</button>
+    <button onclick="vender()">Registrar Saída</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    var lista_nomes = [];
+    var lista_quantidades = [];
+
+    function comprar() {
+        var nome = input_nome.value;
+        var quantidade = Number(input_quantidade.value);
+
+        var indice_nome = lista_nomes.indexOf(nome);
+
+        if (indice_nome >= 0) {
+            lista_quantidades[indice_nome] += quantidade;
+            div_mensagem.innerHTML = `O produto ${nome} foi atualizado com sucesso.`
+        } else {
+            lista_nomes.push(nome);
+            lista_quantidades.push(quantidade);
+            div_mensagem.innerHTML = `O produto ${nome} foi registrado no estoque.`
+        }
+    } 
+    function vender() {
+        var nome = input_nome.value;
+        var quantidade = Number(input_quantidade.value);
+
+        var indice_nome = lista_nomes.indexOf(nome);
+
+        if (indice_nome < 0) {
+            div_mensagem.innerHTML = "O produto informado não existe no estoque.";
+        } else {
+            if (lista_quantidades[indice_nome] >= quantidade) {
+                lista_quantidades[indice_nome] -= quantidade; 
+                div_mensagem.innerHTML = `O produto ${nome} foi vendido com sucesso estoque.`
+            } else {
+                div_mensagem.innerHTML = "A quantidade em estoque não é suficiente para a venda."
+            }
+        }
+    }
+</script>

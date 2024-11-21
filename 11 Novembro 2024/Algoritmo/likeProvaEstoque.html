@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Registrar produto: <input type="text" id="inputProduto">
+    Registrar código: <input type="text" id="inputCodigo">
+    Registrar quantidade: <input type="number" id="inputQtd">
+    <button onclick="cadastrar()">Cadastrar Produto</button>
+    <button onclick="repor()">Repor Estoque</button>
+    <button onclick="vender()">Vender Produto</button>
+    <button onclick="exibir()">Exibir Relatório</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    var lista = []
+    var codUnico = []
+    var quantidade = []
+    
+    var mensagem = ''
+
+    function cadastrar(){
+
+        var produto = inputProduto.value
+        var codigo = inputCodigo.value
+        var qtd = Number(inputQtd.value)
+
+        if (produto == '' || codigo == '' || qtd == ''){
+            mensagem = `Preencha todos os campos para registrar um novo produto`
+
+            
+        }else if (codUnico.includes(codigo)) {
+            mensagem = `Código de produto já existente`
+
+        }else {
+            lista.push(produto)
+            codUnico.push(codigo)
+            quantidade.push(qtd)
+            mensagem = `Produto ${produto} registrado com sucesso`
+
+        }
+        div_mensagem.innerHTML = mensagem
+    } 
+    function repor(){
+        var produto = inputProduto.value
+        var codigo = inputCodigo.value
+        var qtd = Number(inputQtd.value)
+
+        for (var index = 0; index < codUnico.length; index++) {
+            var repetido = codUnico[index]
+            var nomeRepetido = lista[index]
+            var qtdAtual = quantidade[index]
+
+            if (repetido != codigo || nomeRepetido != produto){
+             
+             mensagem = "Produto não identificado"
+            
+        }else if (qtd <= 0 ){
+            mensagem = 'Quantidade inválida'
+        }else {
+            quantidade[index] += qtd
+            mensagem = `${qtd} do ${produto} foi reposto com sucesso<br>`
+            mensagem += `Código: ${repetido} | Produto: ${nomeRepetido} | Quantidade em Estoque: ${quantidade[index]}`
+        }
+    }
+    div_mensagem.innerHTML = mensagem
+
+
+
+    }
+    function vender(){
+        var produto = inputProduto.value
+        var codigo = inputCodigo.value
+        var qtd = Number(inputQtd.value)
+
+        for (var index = 0; index < codUnico.length; index++) {
+            var repetido = codUnico[index]
+            var nomeRepetido = lista[index]
+            var qtdAtual = quantidade[index]
+
+            if (repetido != codigo || nomeRepetido != produto){
+             
+             mensagem = "Produto não identificado"
+            
+        }else if (qtd > qtdAtual ){
+            mensagem = 'Quantidade inválida'
+        }else {
+            quantidade[index] -= qtd
+            mensagem = `${qtd} do ${produto} foi vendido com sucesso<br>`
+            mensagem += `Código: ${repetido} | Produto: ${nomeRepetido} | Quantidade em Estoque: ${quantidade[index]}`
+           
+        }
+
+        if (quantidade[index] < 10){
+            alert('Hora de repor o estoque')
+        }
+    }
+    div_mensagem.innerHTML = mensagem
+
+    }
+    function exibir(){
+        var produto = inputProduto.value
+        var codigo = inputCodigo.value
+        var qtd = Number(inputQtd.value)
+        var mensagem = ''
+        var total = 0
+
+        for (var index = 0; index < lista.length; index++) {
+            var repetido = codUnico[index]
+            var nomeRepetido = lista[index]
+            var qtdAtual = quantidade[index]
+            var estoque = 'OK'
+            total += qtdAtual
+
+            if(qtdAtual < 10){
+                estoque = 'Precisa Repor'
+            }
+            
+            mensagem += `Categoria ${index+1} - Código: ${repetido} | Produto: ${produto} | Quantidade em Estoque: ${qtdAtual} ${estoque}<br>`
+            
+        }
+        mensagem += `Seu estoque tem ${total} produtos registrados, sendo ${lista.length} categorias diferentes`
+        div_mensagem.innerHTML = mensagem 
+    }
+</script>

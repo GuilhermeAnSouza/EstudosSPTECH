@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="div1">
+        nome: <input type="text" id="inputNome">
+        <button onclick="cadastrar()">Cadastrar Nome</button>
+        <button onclick="registro()">Ir para Registro de Pontuações</button>
+    </div>
+
+    <div id="div2">
+        Pontuação: <input type="number" id="inputPontuacao">
+        <button onclick="pontuacao()">Registrar Pontuação</button>
+        <button onclick="exibir()">Finalizar e Exibir Resultados</button>
+
+    </div>
+
+    <div id="div_mensagem"></div>
+    <div id="div_mensagem2"></div>
+</body>
+
+</html>
+
+<Script>
+    div2.style.display = 'none'
+    var lista = []
+    var pontuacaoJogadores = []
+    var mensagem = ''
+    var mensagem2 = ''
+    var mensagem3 = ''
+    var contador = 0
+    var total = 0
+    var contBonus = 0
+
+
+    function cadastrar() {
+        var nome = inputNome.value
+
+        if (nome == '') {
+            mensagem = `<span style="color: red;">Nome vazio</span>`
+
+        } else if (lista.includes(nome)) {
+            mensagem = `<span style="color: red;">Nome já existe</span>`
+        } else {
+            mensagem = `<span style="color: green;">Usuario cadastrado com sucesso</span>`
+            lista.push(nome)
+        }
+
+        div_mensagem.innerHTML = mensagem
+    }
+
+    function registro() {
+        if (lista.length <= 0) {
+            mensagem = `<span style="color: red;">Sem jogadores</span>`
+        } else {
+            div1.style.display = 'none'
+            div2.style.display = 'block'
+            
+
+            mensagem = `${lista[contador]} - (${contador + 1}/${lista.length})`
+
+            div_mensagem.innerHTML = mensagem
+        }
+    }
+
+    function pontuacao() {
+        var pont = Number(inputPontuacao.value)
+        contador++
+        if (pont < 0) {
+            mensagem += `<span style="color: red;">pontuação vazia, arrume</span>`
+        } else if (contador > lista.length) {
+            mensagem = `<span style="color: red;">Todos os jogadores já tem pontos</span>`
+        } else if (contador==lista.length) {
+            pontuacaoJogadores.push(pont)
+            mensagem = `<span style="color: green;">Pontuações cadastradas!</span><br>`
+
+        }else {
+            pontuacaoJogadores.push(pont)
+            mensagem = `${lista[contador]} - (${contador + 1}/${lista.length})<br><span style="color: green;">Pontuações cadastrada com sucesso!</span> `
+        }
+        div_mensagem.innerHTML = mensagem
+    }
+
+    function exibir() {
+    var nomeMaior = lista[0]
+    var nomeMenor = lista[0]
+    var pontMaior = pontuacaoJogadores[0]
+    var pontMenor = pontuacaoJogadores[0]
+    var total = 0
+    var contBonus = 0
+    var mensagem = ''
+    var mensagem2 = ''
+
+    if (lista.length != pontuacaoJogadores.length) {
+        mensagem = `<span style="color: red;">Jogadores sem pontuação!</span>`
+    } else {
+        div2.style.display = 'none'
+
+        for (var index = 0; index < lista.length; index++) {
+            total += pontuacaoJogadores[index]
+
+            if (pontuacaoJogadores[index] > pontMaior) {
+                nomeMaior = lista[index]
+                pontMaior = pontuacaoJogadores[index]
+            }
+
+            if (pontuacaoJogadores[index] < pontMenor) {
+                nomeMenor = lista[index]
+                pontMenor = pontuacaoJogadores[index]
+            }
+        }
+
+        mensagem = `Total: ${total} pontos<br>
+                    Jogadores (${lista.length})<br>`
+        for (var index = 0; index < lista.length; index++) {
+            var bonificado = ''
+
+            if (pontuacaoJogadores[index] % 5 == 0 || pontuacaoJogadores[index] % 3 == 0) {
+                bonificado = 'e foi BONIFICADO'
+                contBonus++
+            }
+
+            mensagem += `${lista[index]} fez o total de ${pontuacaoJogadores[index]} pontos, representando ${(pontuacaoJogadores[index] / total * 100).toFixed(2)}% do total ${bonificado} <br>`
+        }
+
+        mensagem3 = `Vencedor: ${nomeMaior} com ${pontMaior} pontos. <br>
+                     `
+
+        for (var index = 0; index < lista.length; index++) {
+            if (pontuacaoJogadores[index] == pontMaior && lista[index] != nomeMaior) {
+                mensagem3 = ''
+                
+                mensagem2 += `O jogador ${lista[index]} empatou com ${nomeMaior}, ambos com ${pontMaior} pontos.<br>
+                            `
+            }
+        }
+    }
+    
+    div_mensagem.innerHTML = `${mensagem} ${mensagem3}`
+    div_mensagem2.innerHTML = `${mensagem2} <br> Jogadores bonificados: ${contBonus}`
+}
+
+
+
+
+
+</Script>
